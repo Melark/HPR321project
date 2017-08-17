@@ -66,14 +66,14 @@
             this.lblGrip = new System.Windows.Forms.Label();
             this.btnGripUp = new System.Windows.Forms.Button();
             this.mtbTeachMoverDetails = new MetroFramework.Controls.MetroTabPage();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.txtCurrentCommand = new MetroFramework.Controls.MetroTextBox();
             this.cmbPorts = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnSave = new System.Windows.Forms.Button();
             this.mtbbTeachMoverDetails = new MetroFramework.Controls.MetroTextBox();
             this.btnBack = new System.Windows.Forms.Button();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.txtCurrentCommand = new MetroFramework.Controls.MetroTextBox();
             this.mtbArmControllerTabs.SuspendLayout();
             this.mtbppUserInterface.SuspendLayout();
             this.pnArm.SuspendLayout();
@@ -92,7 +92,7 @@
             this.mtbArmControllerTabs.Location = new System.Drawing.Point(17, 84);
             this.mtbArmControllerTabs.Margin = new System.Windows.Forms.Padding(2);
             this.mtbArmControllerTabs.Name = "mtbArmControllerTabs";
-            this.mtbArmControllerTabs.SelectedIndex = 1;
+            this.mtbArmControllerTabs.SelectedIndex = 0;
             this.mtbArmControllerTabs.Size = new System.Drawing.Size(888, 413);
             this.mtbArmControllerTabs.TabIndex = 7;
             // 
@@ -144,7 +144,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Location = new System.Drawing.Point(658, 51);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(43, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(44, 19);
             this.metroLabel3.TabIndex = 16;
             this.metroLabel3.Text = "Faster";
             // 
@@ -516,6 +516,23 @@
             this.mtbTeachMoverDetails.VerticalScrollbarBarColor = true;
             this.mtbTeachMoverDetails.VerticalScrollbarSize = 8;
             // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(445, 21);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(128, 19);
+            this.metroLabel5.TabIndex = 13;
+            this.metroLabel5.Text = "Current Coordinates";
+            // 
+            // txtCurrentCommand
+            // 
+            this.txtCurrentCommand.Location = new System.Drawing.Point(578, 21);
+            this.txtCurrentCommand.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCurrentCommand.Name = "txtCurrentCommand";
+            this.txtCurrentCommand.Size = new System.Drawing.Size(198, 19);
+            this.txtCurrentCommand.TabIndex = 12;
+            // 
             // cmbPorts
             // 
             this.cmbPorts.FormattingEnabled = true;
@@ -581,23 +598,6 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(445, 21);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(128, 19);
-            this.metroLabel5.TabIndex = 13;
-            this.metroLabel5.Text = "Current Coordinates";
-            // 
-            // txtCurrentCommand
-            // 
-            this.txtCurrentCommand.Location = new System.Drawing.Point(578, 21);
-            this.txtCurrentCommand.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCurrentCommand.Name = "txtCurrentCommand";
-            this.txtCurrentCommand.Size = new System.Drawing.Size(198, 19);
-            this.txtCurrentCommand.TabIndex = 12;
-            // 
             // Arm_Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,7 +608,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Arm_Controller";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
-            this.Text = "Arm_Controller";
+            this.Text = "Arm Controller";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Arm_Controller_FormClosed);
             this.Load += new System.EventHandler(this.Arm_Controller_Load);
             this.mtbArmControllerTabs.ResumeLayout(false);
             this.mtbppUserInterface.ResumeLayout(false);

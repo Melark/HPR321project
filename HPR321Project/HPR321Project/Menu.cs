@@ -13,10 +13,16 @@ namespace HPR321Project
 {
     public partial class Menu : MetroForm
     {
+        #region Constructors
+
         public Menu()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Events
 
         private void Menu_Load(object sender, EventArgs e)
         {
@@ -35,6 +41,6 @@ namespace HPR321Project
             
         }
 
-       
+        #endregion
     }
 }

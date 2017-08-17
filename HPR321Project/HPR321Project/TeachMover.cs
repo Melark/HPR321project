@@ -13,10 +13,16 @@ namespace HPR321Project
 {
     public partial class TeachMover : MetroForm
     {
+        #region Constructors
+
         public TeachMover()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Events
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -29,5 +35,7 @@ namespace HPR321Project
             menu.Show();
             this.Hide();
         }
+
+        #endregion
     }
 }
