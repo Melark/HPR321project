@@ -14,6 +14,7 @@ namespace HPR321Project
 {
     public partial class Arm_Controller : MetroForm
     {
+
         #region Fields
 
         private string MovementSpeed = "200"; //Default movement speed
@@ -59,37 +60,65 @@ namespace HPR321Project
 
         private void btnBodyLeft_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Body Left");
             }
         }
 
         private void btnBodyRight_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Body Right");
             }
         }
 
         #endregion
-        
+
         #region Shoulder
 
         private void btnShoulderUp_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Shoulder Up");
             }
         }
 
         private void btnShoulderDown_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,100,0,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,100,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Shoulder Down");
             }
         }
 
@@ -99,17 +128,31 @@ namespace HPR321Project
 
         private void btnArmUp_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Arm Up");
             }
         }
 
         private void btnArmDown_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Arm Down");
             }
         }
 
@@ -119,49 +162,91 @@ namespace HPR321Project
 
         private void btnGripUp_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Grip Up");
             }
         }
 
         private void btnGrupDown_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Grip Down");
             }
         }
 
         private void btnGripClose_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Closing Grip");
             }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Opening Grip");
             }
         }
 
         private void btnGripRotateLeft_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,-100,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,-100,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Rotating Grip Left");
             }
         }
 
         private void btnRotateRight_Click(object sender, EventArgs e)
         {
-            if (sp.IsOpen)
+            try
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,100,0,0,\r");
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,100,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Rotating Grip Right");
             }
         }
 
@@ -186,7 +271,7 @@ namespace HPR321Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured: " + ex.Message, "Error");
+                DisplayErrorMessage("An error occured: " + ex.Message, "Saving");
             }
 
         }
@@ -210,53 +295,75 @@ namespace HPR321Project
 
         public void PortReader(object s, EventArgs e)
         {
-            string currentdata = sp.ReadExisting();
-            currentDataTempStorage += currentdata;
-            if (currentDataTempStorage.EndsWith("\r"))
+            try
             {
-                IsCarrageReturnReceived = true;
-                // done
-                if (currentDataTempStorage.Length > 10)
+                string currentdata = sp.ReadExisting();
+                currentDataTempStorage += currentdata;
+                if (currentDataTempStorage.EndsWith("\r"))
                 {
-                    if (RecordProgram)
+                    IsCarrageReturnReceived = true;
+                    // done
+                    if (currentDataTempStorage.Length > 10)
                     {
-                        ListOfRecordedCommands.Add("" + currentDataTempStorage.ToString());
-                        // mybe write the program to file
+                        if (RecordProgram)
+                        {
+                            ListOfRecordedCommands.Add("" + currentDataTempStorage.ToString());
+                            // mybe write the program to file
+                        }
+                        ListOfCommands.Add(currentDataTempStorage.ToString());
+                        txtCurrentCommand.Text = currentDataTempStorage; // display the current read move coordinates
                     }
-                    ListOfCommands.Add(currentDataTempStorage.ToString());
-                    txtCurrentCommand.Text = currentDataTempStorage; // display the current read move coordinates
-                }
-                // lstData.Items.Add(currentDataTempStorage.ToString());
+                    // lstData.Items.Add(currentDataTempStorage.ToString());
 
-                currentDataTempStorage = ""; // reset to null value
+                    currentDataTempStorage = ""; // reset to null value
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Port Reader");
             }
         }
-        
+
         private void SpeedSlider_ValueChanged(object sender, EventArgs e)
         {
             MovementSpeed = SpeedSlider.Value.ToString();
         }
-        
+
         #endregion
 
         #region Methods
 
         public void CheckConnectedDevices()
         {
-            string[] ports = SerialPort.GetPortNames();
-
-            cmbPorts.Items.Clear();
-            foreach (var item in ports)
+            try
             {
-                cmbPorts.Items.Add(item);
+                string[] ports = SerialPort.GetPortNames();
+
+                cmbPorts.Items.Clear();
+                foreach (var item in ports)
+                {
+                    cmbPorts.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Checking Connected Devices");
             }
         }
-        
+
         private void BackToMenu()
         {
             Menu menu = new Menu();
             menu.Show();
             this.Hide();
+        }
+
+        private void DisplayErrorMessage(string ErrorMessage, string MethodName)
+        {
+            Invoke(new Action(() =>
+            {
+                MessageBox.Show("An Error has occured: " + ErrorMessage, "Error in " + MethodName);
+            }));
         }
 
         #endregion
