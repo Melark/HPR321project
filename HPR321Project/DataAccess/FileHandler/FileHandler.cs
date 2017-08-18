@@ -50,23 +50,45 @@ namespace DataAccess.FileHandler
 
         #region Append
 
+        public void Append(string[] Data, bool CreateNewFile = false)
+        {
+
+        }
+        
         #endregion
 
         #region Overwrite
 
+        public void Overwrite(string[] Data, bool CreateNewFile = false)
+        {
+
+        }
+
         #endregion
+
+        private void WriteData(string[] Data, StreamWriter internalWriter)
+        {
+            for (int i = 0; i < Data.Length; i++)
+            {
+                internalWriter.WriteLine(Data[i]);
+            }
+            internalWriter.Close();
+        }
 
         #endregion
 
         #region Clear File
 
+        public void ClearContents(string FilePathParam)
+        {
 
+        }
 
         #endregion
 
         #region Creation
 
-        private void CreateFile()
+        private void CreateFile(string FilePathParam)
         {
 
         }
