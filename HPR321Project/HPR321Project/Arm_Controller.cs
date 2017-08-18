@@ -9,11 +9,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Timers.Timer;
+using System.Timers;
 
 namespace HPR321Project
 {
     public partial class Arm_Controller : MetroForm
     {
+        private static Timer loopBodyRightTimer;
+        private static Timer loopBodyLeftTimer;
+
 
         #region Fields
 
@@ -45,6 +50,55 @@ namespace HPR321Project
         private void Arm_Controller_Load(object sender, EventArgs e)
         {
             CheckConnectedDevices(); // checks connected devices on the serial port
+            setBodyTimer();
+        }
+
+        private void setBodyTimer()
+        {
+            loopBodyRightTimer = new Timer();
+            loopBodyLeftTimer = new Timer();
+
+            loopBodyRightTimer.Interval = 500;
+            loopBodyLeftTimer.Interval = 500;
+
+            loopBodyRightTimer.Enabled = false;
+            loopBodyLeftTimer.Enabled = false;
+
+            loopBodyRightTimer.Elapsed += loopBodyRightEvent;
+            loopBodyLeftTimer.Elapsed += loopLeftRightEvent;
+
+            loopBodyRightTimer.AutoReset = true;
+            loopBodyLeftTimer.AutoReset = true;
+        }
+
+        private void loopBodyRightEvent(Object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Body Right");
+            }
+        }
+
+        private  void loopLeftRightEvent(Object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Body Left");
+            }
         }
 
         private void Arm_Controller_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,32 +114,32 @@ namespace HPR321Project
 
         private void btnBodyLeft_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (sp.IsOpen)
-                {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayErrorMessage(ex.Message, "Body Left");
-            }
+            //try
+            //{
+            //    if (sp.IsOpen)
+            //    {
+            //        sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    DisplayErrorMessage(ex.Message, "Body Left");
+            //}
         }
 
         private void btnBodyRight_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (sp.IsOpen)
-                {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayErrorMessage(ex.Message, "Body Right");
-            }
+            //try
+            //{
+            //    if (sp.IsOpen)
+            //    {
+            //        sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    DisplayErrorMessage(ex.Message, "Body Right");
+            //}
         }
 
         #endregion
@@ -367,5 +421,25 @@ namespace HPR321Project
         }
 
         #endregion
+
+        private void btnBodyRight_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopBodyRightTimer.Enabled = true;
+        }
+
+        private void btnBodyRight_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopBodyRightTimer.Enabled = false;
+        }
+
+        private void btnBodyLeft_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopBodyLeftTimer.Enabled = true;
+        }
+
+        private void btnBodyLeft_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopBodyLeftTimer.Enabled = false;
+        }
     }
 }

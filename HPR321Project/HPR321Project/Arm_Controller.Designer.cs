@@ -360,6 +360,8 @@
             this.btnBodyRight.TabIndex = 2;
             this.btnBodyRight.UseVisualStyleBackColor = true;
             this.btnBodyRight.Click += new System.EventHandler(this.btnBodyRight_Click);
+            this.btnBodyRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyRight_MouseDown);
+            this.btnBodyRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyRight_MouseUp);
             // 
             // btnBody
             // 
@@ -383,6 +385,8 @@
             this.btnBodyLeft.TabIndex = 0;
             this.btnBodyLeft.UseVisualStyleBackColor = true;
             this.btnBodyLeft.Click += new System.EventHandler(this.btnBodyLeft_Click);
+            this.btnBodyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseDown);
+            this.btnBodyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseUp);
             // 
             // pnGripOpenClose
             // 
