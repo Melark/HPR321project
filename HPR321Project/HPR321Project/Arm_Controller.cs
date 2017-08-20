@@ -16,9 +16,25 @@ namespace HPR321Project
 {
     public partial class Arm_Controller : MetroForm
     {
+        #region TimerFields
         private static Timer loopBodyRightTimer;
         private static Timer loopBodyLeftTimer;
 
+        private static Timer loopShoulderUpTimer;
+        private static Timer loopShoulderDownTimer;
+
+        private static Timer loopArmDownTimer;
+        private static Timer loopArmUpTimer;
+
+        private static Timer loopGripMovementDownTimer;
+        private static Timer loopGripMovementUpTimer;
+
+        private static Timer loopGripCloseTimer;
+        private static Timer loopGripOpenTimer;
+
+        private static Timer loopGripPivotRightTimer;
+        private static Timer loopGripPivotLeftTimer;
+        #endregion
 
         #region Fields
 
@@ -50,28 +66,21 @@ namespace HPR321Project
         private void Arm_Controller_Load(object sender, EventArgs e)
         {
             CheckConnectedDevices(); // checks connected devices on the serial port
-            setBodyTimer();
+            SetTimers();
         }
 
-        private void setBodyTimer()
+        private void Arm_Controller_FormClosed(object sender, FormClosedEventArgs e)
         {
-            loopBodyRightTimer = new Timer();
-            loopBodyLeftTimer = new Timer();
-
-            loopBodyRightTimer.Interval = 500;
-            loopBodyLeftTimer.Interval = 500;
-
-            loopBodyRightTimer.Enabled = false;
-            loopBodyLeftTimer.Enabled = false;
-
-            loopBodyRightTimer.Elapsed += loopBodyRightEvent;
-            loopBodyLeftTimer.Elapsed += loopLeftRightEvent;
-
-            loopBodyRightTimer.AutoReset = true;
-            loopBodyLeftTimer.AutoReset = true;
+            BackToMenu();
         }
 
-        private void loopBodyRightEvent(Object source, ElapsedEventArgs e)
+        #endregion
+
+        #region TimerEventMethods
+
+        #region BodyTimerEvent
+
+        private void LoopBodyRightEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -86,7 +95,7 @@ namespace HPR321Project
             }
         }
 
-        private  void loopLeftRightEvent(Object source, ElapsedEventArgs e)
+        private void LoopLeftRightEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -101,67 +110,10 @@ namespace HPR321Project
             }
         }
 
-        private void Arm_Controller_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            BackToMenu();
-        }
-
         #endregion
 
-        #region Button Clicks
-
-        #region Body
-
-        private void btnBodyLeft_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (sp.IsOpen)
-            //    {
-            //        sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    DisplayErrorMessage(ex.Message, "Body Left");
-            //}
-        }
-
-        private void btnBodyRight_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (sp.IsOpen)
-            //    {
-            //        sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    DisplayErrorMessage(ex.Message, "Body Right");
-            //}
-        }
-
-        #endregion
-
-        #region Shoulder
-
-        private void btnShoulderUp_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sp.IsOpen)
-                {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayErrorMessage(ex.Message, "Shoulder Up");
-            }
-        }
-
-        private void btnShoulderDown_Click(object sender, EventArgs e)
+        #region ShoulderTimerEvent
+        private void LoopShoulderDownEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -176,26 +128,24 @@ namespace HPR321Project
             }
         }
 
-        #endregion
-
-        #region Arm
-
-        private void btnArmUp_Click(object sender, EventArgs e)
+        private void LoopShoulderUpEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
                 if (sp.IsOpen)
                 {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
                 }
             }
             catch (Exception ex)
             {
-                DisplayErrorMessage(ex.Message, "Arm Up");
+                DisplayErrorMessage(ex.Message, "Shoulder Up");
             }
         }
+        #endregion
 
-        private void btnArmDown_Click(object sender, EventArgs e)
+        #region ArmTimerEvent
+        private void LoopArmDownEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -210,26 +160,24 @@ namespace HPR321Project
             }
         }
 
-        #endregion
-
-        #region Grip
-
-        private void btnGripUp_Click(object sender, EventArgs e)
+        private void LoopArmUpEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
                 if (sp.IsOpen)
                 {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
                 }
             }
             catch (Exception ex)
             {
-                DisplayErrorMessage(ex.Message, "Grip Up");
+                DisplayErrorMessage(ex.Message, "Arm Up");
             }
         }
+        #endregion
 
-        private void btnGrupDown_Click(object sender, EventArgs e)
+        #region GripMovementEventMethod
+        private void LoopGripMovementDownEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -244,7 +192,24 @@ namespace HPR321Project
             }
         }
 
-        private void btnGripClose_Click(object sender, EventArgs e)
+        private void LoopGripMovementUpEvent(Object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Grip Up");
+            }
+        }
+        #endregion
+
+        #region GripClawEventMethod
+        private void LoopGripCloseEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -259,7 +224,7 @@ namespace HPR321Project
             }
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void LoopGripOpenEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -273,23 +238,10 @@ namespace HPR321Project
                 DisplayErrorMessage(ex.Message, "Opening Grip");
             }
         }
+        #endregion
 
-        private void btnGripRotateLeft_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (sp.IsOpen)
-                {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,-100,0,0,\r");
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayErrorMessage(ex.Message, "Rotating Grip Left");
-            }
-        }
-
-        private void btnRotateRight_Click(object sender, EventArgs e)
+        #region GripPivotEventMethod
+        private void LoopGripPivotRightEvent(Object source, ElapsedEventArgs e)
         {
             try
             {
@@ -304,7 +256,25 @@ namespace HPR321Project
             }
         }
 
+        private void LoopGripPivotLeftEvent(Object source, ElapsedEventArgs e)
+        {
+            try
+            {
+                if (sp.IsOpen)
+                {
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,-100,0,0,\r");
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(ex.Message, "Rotating Grip Left");
+            }
+        }
         #endregion
+
+        #endregion
+
+        #region Button Clicks
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -420,8 +390,133 @@ namespace HPR321Project
             }));
         }
 
+        private void SetTimers()
+        {
+            SetBodyTimer();
+            SetShoulderTimer();
+            SetArmTimer();
+            SetGripMovementTimer();
+            SetGripClawTimer();
+            SetGripPivotTimer();
+        }
+
+        #region SetupTimerEvents
+
+        private void SetBodyTimer()
+        {
+            loopBodyRightTimer = new Timer();
+            loopBodyLeftTimer = new Timer();
+
+            loopBodyRightTimer.Interval = 500;
+            loopBodyLeftTimer.Interval = 500;
+
+            loopBodyRightTimer.Enabled = false;
+            loopBodyLeftTimer.Enabled = false;
+
+            loopBodyRightTimer.Elapsed += LoopBodyRightEvent;
+            loopBodyLeftTimer.Elapsed += LoopLeftRightEvent;
+
+            loopBodyRightTimer.AutoReset = true;
+            loopBodyLeftTimer.AutoReset = true;
+        }
+
+        private void SetShoulderTimer()
+        {
+            loopShoulderUpTimer = new Timer();
+            loopShoulderDownTimer = new Timer();
+
+            loopShoulderUpTimer.Interval = 500;
+            loopShoulderDownTimer.Interval = 500;
+
+            loopShoulderUpTimer.Enabled = false;
+            loopShoulderDownTimer.Enabled = false;
+
+            loopShoulderUpTimer.Elapsed += LoopShoulderUpEvent;
+            loopShoulderDownTimer.Elapsed += LoopShoulderDownEvent;
+
+            loopShoulderUpTimer.AutoReset = true;
+            loopShoulderDownTimer.AutoReset = true;
+        }
+
+        private void SetArmTimer()
+        {
+            loopArmDownTimer = new Timer();
+            loopArmUpTimer = new Timer();
+
+            loopArmDownTimer.Interval = 500;
+            loopArmUpTimer.Interval = 500;
+
+            loopArmDownTimer.Enabled = false;
+            loopArmUpTimer.Enabled = false;
+
+            loopArmDownTimer.Elapsed += LoopArmDownEvent;
+            loopArmUpTimer.Elapsed += LoopArmUpEvent;
+
+            loopArmDownTimer.AutoReset = true;
+            loopArmUpTimer.AutoReset = true;
+        }
+
+        private void SetGripMovementTimer()
+        {
+            loopGripMovementDownTimer = new Timer();
+            loopGripMovementUpTimer = new Timer();
+
+            loopGripMovementDownTimer.Interval = 500;
+            loopGripMovementUpTimer.Interval = 500;
+
+            loopGripMovementDownTimer.Enabled = false;
+            loopGripMovementUpTimer.Enabled = false;
+
+            loopGripMovementDownTimer.Elapsed += LoopGripMovementDownEvent;
+            loopGripMovementUpTimer.Elapsed += LoopGripMovementUpEvent;
+
+            loopGripMovementDownTimer.AutoReset = true;
+            loopGripMovementUpTimer.AutoReset = true;
+        }
+
+        private void SetGripClawTimer()
+        {
+            loopGripCloseTimer = new Timer();
+            loopGripOpenTimer = new Timer();
+
+            loopGripCloseTimer.Interval = 500;
+            loopGripOpenTimer.Interval = 500;
+
+            loopGripCloseTimer.Enabled = false;
+            loopGripOpenTimer.Enabled = false;
+
+            loopGripCloseTimer.Elapsed += LoopGripCloseEvent;
+            loopGripOpenTimer.Elapsed += LoopGripOpenEvent;
+
+            loopGripCloseTimer.AutoReset = true;
+            loopGripOpenTimer.AutoReset = true;
+        }
+
+        private void SetGripPivotTimer()
+        {
+            loopGripPivotRightTimer = new Timer();
+            loopGripPivotLeftTimer = new Timer();
+
+            loopGripPivotRightTimer.Interval = 500;
+            loopGripPivotLeftTimer.Interval = 500;
+
+            loopGripPivotRightTimer.Enabled = false;
+            loopGripPivotLeftTimer.Enabled = false;
+
+            loopGripPivotRightTimer.Elapsed += LoopGripPivotRightEvent;
+            loopGripPivotLeftTimer.Elapsed += LoopGripPivotLeftEvent;
+
+            loopGripPivotRightTimer.AutoReset = true;
+            loopGripPivotLeftTimer.AutoReset = true;
+        }
+
         #endregion
 
+        #endregion
+
+        #region ButtonDownEvents
+
+        #region Body
         private void btnBodyRight_MouseDown(object sender, MouseEventArgs e)
         {
             loopBodyRightTimer.Enabled = true;
@@ -441,5 +536,117 @@ namespace HPR321Project
         {
             loopBodyLeftTimer.Enabled = false;
         }
+        #endregion
+
+        #region Shoulder
+        private void btnShoulderDown_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopShoulderDownTimer.Enabled = true;
+        }
+
+        private void btnShoulderDown_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopShoulderDownTimer.Enabled = false;
+        }
+
+        private void btnShoulderUp_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopShoulderUpTimer.Enabled = true;
+        }
+
+        private void btnShoulderUp_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopShoulderUpTimer.Enabled = false;
+        }
+
+        #endregion
+
+        #region Arm
+        private void btnArmDown_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopArmDownTimer.Enabled = true;
+        }
+
+        private void btnArmDown_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopArmDownTimer.Enabled = false;
+        }
+
+        private void btnArmUp_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopArmUpTimer.Enabled = true;
+        }
+
+        private void btnArmUp_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopArmUpTimer.Enabled = false;
+        }
+
+        #endregion
+
+        #region Grip
+        private void btnGrupDown_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripMovementDownTimer.Enabled = true;
+        }
+
+        private void btnGrupDown_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripMovementDownTimer.Enabled = false;
+        }
+
+        private void btnGripUp_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripMovementUpTimer.Enabled = true;
+        }
+
+        private void btnGripUp_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripMovementUpTimer.Enabled = false;
+        }
+
+        private void btnOpen_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripOpenTimer.Enabled = true;
+        }
+
+        private void btnOpen_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripOpenTimer.Enabled = false;
+        }
+
+        private void btnGripClose_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripCloseTimer.Enabled = true;
+        }
+
+        private void btnGripClose_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripCloseTimer.Enabled = false;
+        }
+
+        private void btnRotateRight_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripPivotRightTimer.Enabled = true;
+        }
+
+        private void btnRotateRight_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripPivotRightTimer.Enabled = false;
+        }
+
+        private void btnGripRotateLeft_MouseDown(object sender, MouseEventArgs e)
+        {
+            loopGripPivotLeftTimer.Enabled = true;
+        }
+
+        private void btnGripRotateLeft_MouseUp(object sender, MouseEventArgs e)
+        {
+            loopGripPivotLeftTimer.Enabled = false;
+        }
+
+        #endregion
+
+        #endregion
     }
 }

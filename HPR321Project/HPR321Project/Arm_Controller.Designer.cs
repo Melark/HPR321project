@@ -144,7 +144,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Location = new System.Drawing.Point(658, 51);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(44, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(43, 19);
             this.metroLabel3.TabIndex = 16;
             this.metroLabel3.Text = "Faster";
             // 
@@ -191,7 +191,8 @@
             this.btnArmDown.Size = new System.Drawing.Size(68, 51);
             this.btnArmDown.TabIndex = 2;
             this.btnArmDown.UseVisualStyleBackColor = true;
-            this.btnArmDown.Click += new System.EventHandler(this.btnArmDown_Click);
+            this.btnArmDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnArmDown_MouseDown);
+            this.btnArmDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnArmDown_MouseUp);
             // 
             // lblArm
             // 
@@ -214,7 +215,8 @@
             this.btnArmUp.Size = new System.Drawing.Size(68, 51);
             this.btnArmUp.TabIndex = 0;
             this.btnArmUp.UseVisualStyleBackColor = true;
-            this.btnArmUp.Click += new System.EventHandler(this.btnArmUp_Click);
+            this.btnArmUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnArmUp_MouseDown);
+            this.btnArmUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnArmUp_MouseUp);
             // 
             // pnShoulder
             // 
@@ -247,7 +249,8 @@
             this.btnShoulderDown.Size = new System.Drawing.Size(68, 51);
             this.btnShoulderDown.TabIndex = 2;
             this.btnShoulderDown.UseVisualStyleBackColor = true;
-            this.btnShoulderDown.Click += new System.EventHandler(this.btnShoulderDown_Click);
+            this.btnShoulderDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnShoulderDown_MouseDown);
+            this.btnShoulderDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnShoulderDown_MouseUp);
             // 
             // lblShoulder
             // 
@@ -270,7 +273,8 @@
             this.btnShoulderUp.Size = new System.Drawing.Size(68, 51);
             this.btnShoulderUp.TabIndex = 0;
             this.btnShoulderUp.UseVisualStyleBackColor = true;
-            this.btnShoulderUp.Click += new System.EventHandler(this.btnShoulderUp_Click);
+            this.btnShoulderUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnShoulderUp_MouseDown);
+            this.btnShoulderUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnShoulderUp_MouseUp);
             // 
             // pnGripRotate
             // 
@@ -303,7 +307,8 @@
             this.btnRotateRight.Size = new System.Drawing.Size(68, 51);
             this.btnRotateRight.TabIndex = 2;
             this.btnRotateRight.UseVisualStyleBackColor = true;
-            this.btnRotateRight.Click += new System.EventHandler(this.btnRotateRight_Click);
+            this.btnRotateRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnRotateRight_MouseDown);
+            this.btnRotateRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnRotateRight_MouseUp);
             // 
             // lblGriprotate
             // 
@@ -326,7 +331,8 @@
             this.btnGripRotateLeft.Size = new System.Drawing.Size(68, 51);
             this.btnGripRotateLeft.TabIndex = 0;
             this.btnGripRotateLeft.UseVisualStyleBackColor = true;
-            this.btnGripRotateLeft.Click += new System.EventHandler(this.btnGripRotateLeft_Click);
+            this.btnGripRotateLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnGripRotateLeft_MouseDown);
+            this.btnGripRotateLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnGripRotateLeft_MouseUp);
             // 
             // pnBody
             // 
@@ -359,7 +365,6 @@
             this.btnBodyRight.Size = new System.Drawing.Size(68, 51);
             this.btnBodyRight.TabIndex = 2;
             this.btnBodyRight.UseVisualStyleBackColor = true;
-            this.btnBodyRight.Click += new System.EventHandler(this.btnBodyRight_Click);
             this.btnBodyRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyRight_MouseDown);
             this.btnBodyRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyRight_MouseUp);
             // 
@@ -384,7 +389,6 @@
             this.btnBodyLeft.Size = new System.Drawing.Size(68, 51);
             this.btnBodyLeft.TabIndex = 0;
             this.btnBodyLeft.UseVisualStyleBackColor = true;
-            this.btnBodyLeft.Click += new System.EventHandler(this.btnBodyLeft_Click);
             this.btnBodyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseDown);
             this.btnBodyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseUp);
             // 
@@ -419,7 +423,8 @@
             this.btnOpen.Size = new System.Drawing.Size(68, 51);
             this.btnOpen.TabIndex = 2;
             this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnOpen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnOpen_MouseDown);
+            this.btnOpen.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnOpen_MouseUp);
             // 
             // lblGripOpenClose
             // 
@@ -442,7 +447,8 @@
             this.btnGripClose.Size = new System.Drawing.Size(68, 51);
             this.btnGripClose.TabIndex = 0;
             this.btnGripClose.UseVisualStyleBackColor = true;
-            this.btnGripClose.Click += new System.EventHandler(this.btnGripClose_Click);
+            this.btnGripClose.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnGripClose_MouseDown);
+            this.btnGripClose.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnGripClose_MouseUp);
             // 
             // pnGrip
             // 
@@ -475,7 +481,8 @@
             this.btnGrupDown.Size = new System.Drawing.Size(68, 51);
             this.btnGrupDown.TabIndex = 2;
             this.btnGrupDown.UseVisualStyleBackColor = true;
-            this.btnGrupDown.Click += new System.EventHandler(this.btnGrupDown_Click);
+            this.btnGrupDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnGrupDown_MouseDown);
+            this.btnGrupDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnGrupDown_MouseUp);
             // 
             // lblGrip
             // 
@@ -498,7 +505,8 @@
             this.btnGripUp.Size = new System.Drawing.Size(68, 51);
             this.btnGripUp.TabIndex = 0;
             this.btnGripUp.UseVisualStyleBackColor = true;
-            this.btnGripUp.Click += new System.EventHandler(this.btnGripUp_Click);
+            this.btnGripUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnGripUp_MouseDown);
+            this.btnGripUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnGripUp_MouseUp);
             // 
             // mtbTeachMoverDetails
             // 
