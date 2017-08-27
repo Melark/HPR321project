@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 using System.Timers;
+using DataAccess.FileHandler;
+using MetroFramework;
 
 namespace HPR321Project
 {
@@ -41,12 +43,14 @@ namespace HPR321Project
         private string MovementSpeed = "200"; //Default movement speed
 
         SerialPort sp = new SerialPort();
+        Commands_List cl;
 
         string currentDataTempStorage = "";
         volatile bool IsCarrageReturnReceived = false;
         volatile bool RecordProgram = false;
         List<string> ListOfRecordedCommands = new List<string>(); // store commands recorded by the user
         List<string> ListOfCommands = new List<string>(); //stores all commands run by the user
+        List<string> FinalProgramCommands = new List<string>();// stores formatted final program to be executed.
 
         #endregion
 
@@ -67,6 +71,8 @@ namespace HPR321Project
         {
             CheckConnectedDevices(); // checks connected devices on the serial port
             SetTimers();
+
+            
         }
 
         private void Arm_Controller_FormClosed(object sender, FormClosedEventArgs e)
@@ -290,7 +296,8 @@ namespace HPR321Project
                 {
                     sp.Open();
                     sp.Write("@ARM " + mtbbTeachMoverDetails.Text + "\r");
-                    MessageBox.Show("Connected to port: " + sp.PortName, "Success");
+                    MetroMessageBox.Show(this,"Connected to port: " + sp.PortName, "Success",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    lstCommands.Items.Add("Connected : " + sp.PortName);
                 }
             }
             catch (Exception ex)
@@ -337,7 +344,7 @@ namespace HPR321Project
                         ListOfCommands.Add(currentDataTempStorage.ToString());
                         txtCurrentCommand.Text = currentDataTempStorage; // display the current read move coordinates
                     }
-                    // lstData.Items.Add(currentDataTempStorage.ToString());
+                    lstCommands.Items.Add(currentDataTempStorage.ToString());
 
                     currentDataTempStorage = ""; // reset to null value
                 }
@@ -648,5 +655,154 @@ namespace HPR321Project
         #endregion
 
         #endregion
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            CheckConnectedDevices();
+        }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            if (FinalProgramCommands.Count < 1)
+            {
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.ShowDialog();
+                string filepath = openFile.FileName.ToString();
+                if (string.IsNullOrEmpty(filepath))
+                {
+                    MetroMessageBox.Show(this, "No File Chosen.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    List<string> data = FileHandler.ReadProgramFromFile(filepath);
+                    if (data.Count < 1)
+                    {
+                        MessageBox.Show("Selected File is Empty.");
+                    }
+                    else
+                    {
+                        FinalProgramCommands = null;
+                        FinalProgramCommands = data; // new program stored on the textfile
+                    }
+                }
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "This action will completely clear the program already saved", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            // read data from the textfile
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (FinalProgramCommands.Count > 0)
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Title = "Create A File To Save Data Into";
+                string filepath = "";
+                saveFile.ShowDialog();
+                filepath = saveFile.FileName;
+                if (string.IsNullOrEmpty(filepath))
+                {
+                    MetroMessageBox.Show(this, "Oops! , Please Creat a file first?","Error Occured", MessageBoxButtons.RetryCancel, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    FileHandler.WriteProgramToFile(filepath, FinalProgramCommands);
+                }
+
+            }
+            else
+            {
+                MetroMessageBox.Show(this,"Oops! , Nothing was Recorded.","Error Occured",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnCearConsole_Click(object sender, EventArgs e)
+        {
+            lstCommands.Items.Clear();
+            if (cl != null)
+            {
+                cl.Close();
+            }
+        }
+
+        private void btnCommands_Click(object sender, EventArgs e)
+        {
+            // open Full Command View
+            List<string> lscmd = new List<string>();
+            foreach (var item in lstCommands.Items)
+            {
+                lscmd.Add(item.ToString());
+            }
+            cl = new Commands_List(lscmd);
+            cl.Show();
+            this.Hide();
+
+        }
+
+        private void btnSaveProgram_Click(object sender, EventArgs e)
+        {
+            RecordProgram = true;// allow recording of the program
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (sp.IsOpen)
+            {
+                sp.Write("@RESET \r");
+            }
+        }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            txtCurrentCommand.Text = " ";
+            if (sp.IsOpen)
+            {
+                sp.Write("@READ \r");
+            }
+        }
+        public void ResetNumericUpDowns()
+        {
+            numArm.Value = 0;
+            numBody.Value = 0;
+            numGripperCloseOpen.Value = 0;
+            numGripperRotate.Value = 0;
+            numGripperUpDown.Value = 0;
+            numShoulder.Value = 0;
+        }
+
+        private void btnSendData_Click(object sender, EventArgs e)
+        {
+            mtxbSend.Text = "@STEP " + MovementSpeed + "," + numBody.Value + "," + numShoulder.Value + "," + numArm.Value + "," + numGripperUpDown.Value + "," + numGripperRotate.Value + "," + numGripperCloseOpen.Value + ",\r";
+            if (sp.IsOpen)
+            {
+                sp.Write(mtxbSend.Text);
+            }
+            ResetNumericUpDowns();
+        }
+
+        private void btnReadData_Click(object sender, EventArgs e)
+        {
+            txtCurrentCommand.Text = " ";
+            if (sp.IsOpen)
+            {
+                sp.Write("@READ \r");
+            }
+        }
+
+        private void btnStopData_Click(object sender, EventArgs e)
+        {
+            if (sp.IsOpen)
+            {
+                sp.Write("@STOP \r");
+            }
+        }
+
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

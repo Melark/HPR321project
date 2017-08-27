@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.btnUserInterface = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.lblMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,27 +41,13 @@
             this.btnUserInterface.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUserInterface.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserInterface.ForeColor = System.Drawing.Color.White;
-            this.btnUserInterface.Location = new System.Drawing.Point(67, 151);
+            this.btnUserInterface.Location = new System.Drawing.Point(262, 142);
             this.btnUserInterface.Name = "btnUserInterface";
             this.btnUserInterface.Size = new System.Drawing.Size(299, 58);
             this.btnUserInterface.TabIndex = 4;
             this.btnUserInterface.Text = "Arm Controller";
             this.btnUserInterface.UseVisualStyleBackColor = false;
             this.btnUserInterface.Click += new System.EventHandler(this.btnUserInterface_Click);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(452, 151);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(299, 58);
-            this.btnSettings.TabIndex = 5;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = false;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // lblMenu
             // 
@@ -94,7 +79,6 @@
             this.ClientSize = new System.Drawing.Size(823, 687);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMenu);
-            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnUserInterface);
             this.Name = "Menu";
             this.Text = "Menu";
@@ -108,7 +92,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnUserInterface;
-        private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
