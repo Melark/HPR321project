@@ -51,7 +51,8 @@ namespace HPR321Project
         List<string> ListOfRecordedCommands = new List<string>(); // store commands recorded by the user
         List<string> ListOfCommands = new List<string>(); //stores all commands run by the user
         List<string> FinalProgramCommands = new List<string>();// stores formatted final program to be executed.
-
+        List<string> FinalProgramTempF = new List<string>(); // Foward Move Temporary Store
+        List<string> FInalProgramTempR = new List<string>(); // reverse move Temporay Store
         #endregion
 
         #region Constructors
@@ -801,8 +802,107 @@ namespace HPR321Project
 
         private void btnRun_Click(object sender, EventArgs e)
         {
-
+            //pBar.Value = 0;
+            // add Steps to the Commmand
+            string line = "";
+            if (sp.IsOpen)
+            {
+                for (int i = 0; i < ListOfRecordedCommands.Count - 1; i++)
+                {
+                    line = mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "" + CoordsCalculator(ListOfRecordedCommands[i + 1], ListOfRecordedCommands[i]).Replace("/r", "").Replace("\r", "") + "\r";
+                    FinalProgramCommands.Add(line);// add final code to the machine
+                }
+                backRunCode.RunWorkerAsync();
+            }
         }
 
+        private void btnInitialPosition_Click(object sender, EventArgs e)
+        {
+            if (!backRunCode.IsBusy)
+            {
+                if (sp.IsOpen)
+                {                                                                                                                                                                                                                                                                                                                                               
+                    FinalProgramTempF = FinalProgramCommands;
+                    CalclateReverseProgram();
+                    backRunCode.RunWorkerAsync();
+                }
+            }
+            else
+            {
+                MessageBox.Show("System is Still Executing the Steps..");
+            }
+        }
+
+        public void CalclateReverseProgram()
+        {
+            foreach (string cmd in FinalProgramCommands)
+            {
+                string[] commandSub = cmd.Split(',');
+                string finalcommandX = "";
+
+                for (int i = 0; i < 8; i++)
+                {
+                    if (i > 1 && i < 8)
+                    {
+                        double current = double.Parse(commandSub[i]);
+                        if (current > 0)
+                        {
+                            current *= -1;
+                            finalcommandX = "," + current.ToString();
+
+                        }
+                        if (current > 0)
+                        {
+                            current *= -1;
+                            finalcommandX = "," + current.ToString();
+                        }
+
+                    }
+                    else
+                    {
+                        finalcommandX = commandSub[i];
+                    }
+
+                }
+                FInalProgramTempR.Add(cmd);
+            }
+            FInalProgramTempR.Reverse();
+            FinalProgramCommands = FInalProgramTempR;
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            if (sp.IsOpen)
+            {
+                sp.Write("@RESET \r");
+            }
+        }
+
+        public string CoordsCalculator(string current, string previous)
+        {
+            if (current.Split(',')[0].Contains("\r"))
+            {
+                current = current.Remove(0, 1);
+            }
+
+            if (previous.Split(',')[0].Contains("\r"))
+            {
+                previous = previous.Remove(0, 1);
+            }
+
+            string currentBackSPlit = current.Replace("\r", "").Replace("/r", "");
+            string previousBackSplit = previous.Replace("\r", "").Replace("/r", "");
+            string line = "";
+            string[] currentArr = currentBackSPlit.Split(',');
+            string[] previousArr = previousBackSplit.Split(',');
+
+            double[] data = new double[currentArr.Length];
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = double.Parse(currentArr[i]) - double.Parse(previousArr[i]);
+                line += "," + data[i];
+            }
+            return line;
+        }
     }
 }
