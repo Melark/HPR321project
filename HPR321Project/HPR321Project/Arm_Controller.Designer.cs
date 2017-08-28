@@ -138,7 +138,7 @@
             this.mtbArmControllerTabs.Location = new System.Drawing.Point(17, 84);
             this.mtbArmControllerTabs.Margin = new System.Windows.Forms.Padding(2);
             this.mtbArmControllerTabs.Name = "mtbArmControllerTabs";
-            this.mtbArmControllerTabs.SelectedIndex = 2;
+            this.mtbArmControllerTabs.SelectedIndex = 0;
             this.mtbArmControllerTabs.Size = new System.Drawing.Size(888, 393);
             this.mtbArmControllerTabs.TabIndex = 7;
             this.mtbArmControllerTabs.UseSelectable = true;
@@ -550,6 +550,7 @@
             this.btnBodyLeft.Size = new System.Drawing.Size(68, 51);
             this.btnBodyLeft.TabIndex = 0;
             this.btnBodyLeft.UseVisualStyleBackColor = true;
+            this.btnBodyLeft.Click += new System.EventHandler(this.btnBodyLeft_Click);
             this.btnBodyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseDown);
             this.btnBodyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseUp);
             // 
