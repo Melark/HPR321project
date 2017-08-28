@@ -43,7 +43,7 @@ namespace HPR321Project
         private string MovementSpeed = "200"; //Default movement speed
 
         SerialPort sp = new SerialPort();
-        Commands_List cl;
+        //Commands_List cl;
 
         string currentDataTempStorage = "";
         volatile bool IsCarrageReturnReceived = false;
