@@ -719,28 +719,25 @@ namespace HPR321Project
             }
         }
 
-        private void btnCearConsole_Click(object sender, EventArgs e)
+        private void btnClearConsole_Click(object sender, EventArgs e)
         {
             lstCommands.Items.Clear();
-            if (cl != null)
-            {
-                cl.Close();
-            }
+           
         }
 
-        private void btnCommands_Click(object sender, EventArgs e)
-        {
-            // open Full Command View
-            List<string> lscmd = new List<string>();
-            foreach (var item in lstCommands.Items)
-            {
-                lscmd.Add(item.ToString());
-            }
-            cl = new Commands_List(lscmd);
-            cl.Show();
-            this.Hide();
+        //private void btnCommands_Click(object sender, EventArgs e)
+        //{
+        //    // open Full Command View
+        //    List<string> lscmd = new List<string>();
+        //    foreach (var item in lstCommands.Items)
+        //    {
+        //        lscmd.Add(item.ToString());
+        //    }
+        //    cl = new Commands_List(lscmd);
+        //    cl.Show();
+        //    this.Hide();
 
-        }
+        //}
 
         private void btnSaveProgram_Click(object sender, EventArgs e)
         {
@@ -903,6 +900,11 @@ namespace HPR321Project
                 line += "," + data[i];
             }
             return line;
+        }
+
+        private void btnImport_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

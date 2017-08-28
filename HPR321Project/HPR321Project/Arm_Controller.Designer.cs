@@ -67,23 +67,17 @@
             this.lblGrip = new System.Windows.Forms.Label();
             this.btnGripUp = new System.Windows.Forms.Button();
             this.mtbTeachMoverDetails = new MetroFramework.Controls.MetroTabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpbImport = new System.Windows.Forms.GroupBox();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.grpbExport = new System.Windows.Forms.GroupBox();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.cmbPorts = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnSave = new System.Windows.Forms.Button();
             this.mtbbTeachMoverDetails = new MetroFramework.Controls.MetroTextBox();
-            this.mtbpProgram = new MetroFramework.Controls.MetroTabPage();
-            this.btnRun = new System.Windows.Forms.Button();
-            this.btnInitialPosition = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.grpbExport = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnSaveProgram = new System.Windows.Forms.Button();
-            this.grpbImport = new System.Windows.Forms.GroupBox();
-            this.btnImport = new System.Windows.Forms.Button();
-            this.btnCommands = new System.Windows.Forms.Button();
-            this.btnClearConsole = new System.Windows.Forms.Button();
             this.mtbOtherWay = new MetroFramework.Controls.MetroTabPage();
             this.btnStopData = new System.Windows.Forms.Button();
             this.btnReadData = new System.Windows.Forms.Button();
@@ -105,6 +99,11 @@
             this.mtbSendtoArm = new MetroFramework.Controls.MetroLabel();
             this.txtCurrentCommand = new MetroFramework.Controls.MetroTextBox();
             this.mtbCurrentCoordinates = new MetroFramework.Controls.MetroLabel();
+            this.btnRun = new System.Windows.Forms.Button();
+            this.btnInitialPosition = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSaveProgram = new System.Windows.Forms.Button();
+            this.btnClearConsole = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.lstCommands = new System.Windows.Forms.ListBox();
             this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
@@ -118,9 +117,9 @@
             this.pnGripOpenClose.SuspendLayout();
             this.pnGrip.SuspendLayout();
             this.mtbTeachMoverDetails.SuspendLayout();
-            this.mtbpProgram.SuspendLayout();
-            this.grpbExport.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.grpbImport.SuspendLayout();
+            this.grpbExport.SuspendLayout();
             this.mtbOtherWay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numArm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numShoulder)).BeginInit();
@@ -135,7 +134,6 @@
             // 
             this.mtbArmControllerTabs.Controls.Add(this.mtbppUserInterface);
             this.mtbArmControllerTabs.Controls.Add(this.mtbTeachMoverDetails);
-            this.mtbArmControllerTabs.Controls.Add(this.mtbpProgram);
             this.mtbArmControllerTabs.Controls.Add(this.mtbOtherWay);
             this.mtbArmControllerTabs.Location = new System.Drawing.Point(17, 84);
             this.mtbArmControllerTabs.Margin = new System.Windows.Forms.Padding(2);
@@ -721,6 +719,7 @@
             // 
             // mtbTeachMoverDetails
             // 
+            this.mtbTeachMoverDetails.Controls.Add(this.groupBox1);
             this.mtbTeachMoverDetails.Controls.Add(this.btnRefresh);
             this.mtbTeachMoverDetails.Controls.Add(this.cmbPorts);
             this.mtbTeachMoverDetails.Controls.Add(this.metroLabel2);
@@ -740,6 +739,70 @@
             this.mtbTeachMoverDetails.VerticalScrollbarHighlightOnWheel = false;
             this.mtbTeachMoverDetails.VerticalScrollbarSize = 8;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.grpbImport);
+            this.groupBox1.Controls.Add(this.grpbExport);
+            this.groupBox1.Location = new System.Drawing.Point(586, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(291, 198);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "TEXTFILE Functionality";
+            // 
+            // grpbImport
+            // 
+            this.grpbImport.Controls.Add(this.btnImport);
+            this.grpbImport.Location = new System.Drawing.Point(5, 29);
+            this.grpbImport.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbImport.Name = "grpbImport";
+            this.grpbImport.Padding = new System.Windows.Forms.Padding(2);
+            this.grpbImport.Size = new System.Drawing.Size(272, 66);
+            this.grpbImport.TabIndex = 18;
+            this.grpbImport.TabStop = false;
+            this.grpbImport.Text = "IMPORT PROGRAM";
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnImport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.ForeColor = System.Drawing.Color.White;
+            this.btnImport.Location = new System.Drawing.Point(46, 16);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(169, 37);
+            this.btnImport.TabIndex = 18;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click_1);
+            // 
+            // grpbExport
+            // 
+            this.grpbExport.Controls.Add(this.btnExport);
+            this.grpbExport.Location = new System.Drawing.Point(5, 108);
+            this.grpbExport.Margin = new System.Windows.Forms.Padding(2);
+            this.grpbExport.Name = "grpbExport";
+            this.grpbExport.Padding = new System.Windows.Forms.Padding(2);
+            this.grpbExport.Size = new System.Drawing.Size(272, 67);
+            this.grpbExport.TabIndex = 19;
+            this.grpbExport.TabStop = false;
+            this.grpbExport.Text = "EXPORT PROGRAM";
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(46, 16);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(169, 37);
+            this.btnExport.TabIndex = 19;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = false;
+            // 
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
@@ -758,17 +821,17 @@
             // cmbPorts
             // 
             this.cmbPorts.FormattingEnabled = true;
-            this.cmbPorts.ItemHeight = 24;
-            this.cmbPorts.Location = new System.Drawing.Point(142, 44);
+            this.cmbPorts.ItemHeight = 23;
+            this.cmbPorts.Location = new System.Drawing.Point(143, 57);
             this.cmbPorts.Name = "cmbPorts";
-            this.cmbPorts.Size = new System.Drawing.Size(198, 30);
+            this.cmbPorts.Size = new System.Drawing.Size(198, 29);
             this.cmbPorts.TabIndex = 11;
             this.cmbPorts.UseSelectable = true;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(45, 44);
+            this.metroLabel2.Location = new System.Drawing.Point(45, 57);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(92, 19);
             this.metroLabel2.TabIndex = 10;
@@ -813,9 +876,10 @@
             this.mtbbTeachMoverDetails.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mtbbTeachMoverDetails.CustomButton.UseSelectable = true;
             this.mtbbTeachMoverDetails.CustomButton.Visible = false;
+            this.mtbbTeachMoverDetails.Enabled = false;
             this.mtbbTeachMoverDetails.Lines = new string[] {
         "@"};
-            this.mtbbTeachMoverDetails.Location = new System.Drawing.Point(142, 21);
+            this.mtbbTeachMoverDetails.Location = new System.Drawing.Point(143, 21);
             this.mtbbTeachMoverDetails.Margin = new System.Windows.Forms.Padding(2);
             this.mtbbTeachMoverDetails.MaxLength = 32767;
             this.mtbbTeachMoverDetails.Name = "mtbbTeachMoverDetails";
@@ -831,170 +895,6 @@
             this.mtbbTeachMoverDetails.UseSelectable = true;
             this.mtbbTeachMoverDetails.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbbTeachMoverDetails.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // mtbpProgram
-            // 
-            this.mtbpProgram.Controls.Add(this.btnRun);
-            this.mtbpProgram.Controls.Add(this.btnInitialPosition);
-            this.mtbpProgram.Controls.Add(this.btnReset);
-            this.mtbpProgram.Controls.Add(this.grpbExport);
-            this.mtbpProgram.Controls.Add(this.btnSaveProgram);
-            this.mtbpProgram.Controls.Add(this.grpbImport);
-            this.mtbpProgram.Controls.Add(this.btnCommands);
-            this.mtbpProgram.Controls.Add(this.btnClearConsole);
-            this.mtbpProgram.HorizontalScrollbarBarColor = true;
-            this.mtbpProgram.HorizontalScrollbarHighlightOnWheel = false;
-            this.mtbpProgram.HorizontalScrollbarSize = 8;
-            this.mtbpProgram.Location = new System.Drawing.Point(4, 38);
-            this.mtbpProgram.Margin = new System.Windows.Forms.Padding(2);
-            this.mtbpProgram.Name = "mtbpProgram";
-            this.mtbpProgram.Size = new System.Drawing.Size(880, 351);
-            this.mtbpProgram.TabIndex = 2;
-            this.mtbpProgram.Text = "Program";
-            this.mtbpProgram.VerticalScrollbarBarColor = true;
-            this.mtbpProgram.VerticalScrollbarHighlightOnWheel = false;
-            this.mtbpProgram.VerticalScrollbarSize = 8;
-            // 
-            // btnRun
-            // 
-            this.btnRun.BackColor = System.Drawing.Color.Green;
-            this.btnRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRun.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRun.ForeColor = System.Drawing.Color.White;
-            this.btnRun.Location = new System.Drawing.Point(412, 254);
-            this.btnRun.Margin = new System.Windows.Forms.Padding(2);
-            this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(119, 47);
-            this.btnRun.TabIndex = 26;
-            this.btnRun.Text = "RUN";
-            this.btnRun.UseVisualStyleBackColor = false;
-            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
-            // btnInitialPosition
-            // 
-            this.btnInitialPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnInitialPosition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInitialPosition.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInitialPosition.ForeColor = System.Drawing.Color.White;
-            this.btnInitialPosition.Location = new System.Drawing.Point(536, 136);
-            this.btnInitialPosition.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInitialPosition.Name = "btnInitialPosition";
-            this.btnInitialPosition.Size = new System.Drawing.Size(119, 47);
-            this.btnInitialPosition.TabIndex = 25;
-            this.btnInitialPosition.Text = "Initial Position";
-            this.btnInitialPosition.UseVisualStyleBackColor = false;
-            this.btnInitialPosition.Click += new System.EventHandler(this.btnInitialPosition_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(412, 136);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(119, 47);
-            this.btnReset.TabIndex = 24;
-            this.btnReset.Text = "RESET";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
-            // 
-            // grpbExport
-            // 
-            this.grpbExport.Controls.Add(this.btnExport);
-            this.grpbExport.Location = new System.Drawing.Point(2, 117);
-            this.grpbExport.Margin = new System.Windows.Forms.Padding(2);
-            this.grpbExport.Name = "grpbExport";
-            this.grpbExport.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbExport.Size = new System.Drawing.Size(272, 67);
-            this.grpbExport.TabIndex = 17;
-            this.grpbExport.TabStop = false;
-            this.grpbExport.Text = "EXPORT PROGRAM";
-            // 
-            // btnExport
-            // 
-            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnExport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExport.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(46, 16);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(169, 37);
-            this.btnExport.TabIndex = 19;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnSaveProgram
-            // 
-            this.btnSaveProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnSaveProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSaveProgram.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveProgram.ForeColor = System.Drawing.Color.White;
-            this.btnSaveProgram.Location = new System.Drawing.Point(659, 23);
-            this.btnSaveProgram.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSaveProgram.Name = "btnSaveProgram";
-            this.btnSaveProgram.Size = new System.Drawing.Size(119, 47);
-            this.btnSaveProgram.TabIndex = 23;
-            this.btnSaveProgram.Text = "SAVE";
-            this.btnSaveProgram.UseVisualStyleBackColor = false;
-            // 
-            // grpbImport
-            // 
-            this.grpbImport.Controls.Add(this.btnImport);
-            this.grpbImport.Location = new System.Drawing.Point(2, 16);
-            this.grpbImport.Margin = new System.Windows.Forms.Padding(2);
-            this.grpbImport.Name = "grpbImport";
-            this.grpbImport.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbImport.Size = new System.Drawing.Size(272, 66);
-            this.grpbImport.TabIndex = 16;
-            this.grpbImport.TabStop = false;
-            this.grpbImport.Text = "IMPORT PROGRAM";
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnImport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.ForeColor = System.Drawing.Color.White;
-            this.btnImport.Location = new System.Drawing.Point(46, 16);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(2);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(169, 37);
-            this.btnImport.TabIndex = 18;
-            this.btnImport.Text = "Import";
-            this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // btnCommands
-            // 
-            this.btnCommands.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnCommands.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCommands.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCommands.ForeColor = System.Drawing.Color.White;
-            this.btnCommands.Location = new System.Drawing.Point(412, 23);
-            this.btnCommands.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCommands.Name = "btnCommands";
-            this.btnCommands.Size = new System.Drawing.Size(119, 47);
-            this.btnCommands.TabIndex = 22;
-            this.btnCommands.Text = "Command View";
-            this.btnCommands.UseVisualStyleBackColor = false;
-            // 
-            // btnClearConsole
-            // 
-            this.btnClearConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
-            this.btnClearConsole.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClearConsole.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearConsole.ForeColor = System.Drawing.Color.White;
-            this.btnClearConsole.Location = new System.Drawing.Point(536, 23);
-            this.btnClearConsole.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClearConsole.Name = "btnClearConsole";
-            this.btnClearConsole.Size = new System.Drawing.Size(119, 47);
-            this.btnClearConsole.TabIndex = 21;
-            this.btnClearConsole.Text = "Clear Console";
-            this.btnClearConsole.UseVisualStyleBackColor = false;
             // 
             // mtbOtherWay
             // 
@@ -1031,7 +931,7 @@
             this.btnStopData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnStopData.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStopData.ForeColor = System.Drawing.Color.White;
-            this.btnStopData.Location = new System.Drawing.Point(569, 310);
+            this.btnStopData.Location = new System.Drawing.Point(15, 278);
             this.btnStopData.Margin = new System.Windows.Forms.Padding(2);
             this.btnStopData.Name = "btnStopData";
             this.btnStopData.Size = new System.Drawing.Size(256, 47);
@@ -1046,7 +946,7 @@
             this.btnReadData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnReadData.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReadData.ForeColor = System.Drawing.Color.White;
-            this.btnReadData.Location = new System.Drawing.Point(296, 310);
+            this.btnReadData.Location = new System.Drawing.Point(15, 211);
             this.btnReadData.Margin = new System.Windows.Forms.Padding(2);
             this.btnReadData.Name = "btnReadData";
             this.btnReadData.Size = new System.Drawing.Size(256, 47);
@@ -1061,7 +961,7 @@
             this.btnSendData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSendData.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendData.ForeColor = System.Drawing.Color.White;
-            this.btnSendData.Location = new System.Drawing.Point(10, 310);
+            this.btnSendData.Location = new System.Drawing.Point(15, 137);
             this.btnSendData.Margin = new System.Windows.Forms.Padding(2);
             this.btnSendData.Name = "btnSendData";
             this.btnSendData.Size = new System.Drawing.Size(256, 47);
@@ -1072,7 +972,7 @@
             // 
             // numArm
             // 
-            this.numArm.Location = new System.Drawing.Point(493, 93);
+            this.numArm.Location = new System.Drawing.Point(78, 88);
             this.numArm.Margin = new System.Windows.Forms.Padding(2);
             this.numArm.Maximum = new decimal(new int[] {
             655,
@@ -1090,7 +990,7 @@
             // 
             // numShoulder
             // 
-            this.numShoulder.Location = new System.Drawing.Point(493, 53);
+            this.numShoulder.Location = new System.Drawing.Point(78, 49);
             this.numShoulder.Margin = new System.Windows.Forms.Padding(2);
             this.numShoulder.Maximum = new decimal(new int[] {
             655,
@@ -1108,7 +1008,7 @@
             // 
             // numBody
             // 
-            this.numBody.Location = new System.Drawing.Point(493, 12);
+            this.numBody.Location = new System.Drawing.Point(78, 8);
             this.numBody.Margin = new System.Windows.Forms.Padding(2);
             this.numBody.Maximum = new decimal(new int[] {
             655,
@@ -1132,18 +1032,18 @@
             this.grpbGripper.Controls.Add(this.mtbxGripperCloseOpen);
             this.grpbGripper.Controls.Add(this.mtbxGripperRotate);
             this.grpbGripper.Controls.Add(this.mtbxGripperUPDOWN);
-            this.grpbGripper.Location = new System.Drawing.Point(426, 129);
+            this.grpbGripper.Location = new System.Drawing.Point(296, 10);
             this.grpbGripper.Margin = new System.Windows.Forms.Padding(2);
             this.grpbGripper.Name = "grpbGripper";
             this.grpbGripper.Padding = new System.Windows.Forms.Padding(2);
-            this.grpbGripper.Size = new System.Drawing.Size(260, 141);
+            this.grpbGripper.Size = new System.Drawing.Size(275, 141);
             this.grpbGripper.TabIndex = 23;
             this.grpbGripper.TabStop = false;
             this.grpbGripper.Text = "GRIPPER";
             // 
             // numGripperCloseOpen
             // 
-            this.numGripperCloseOpen.Location = new System.Drawing.Point(79, 105);
+            this.numGripperCloseOpen.Location = new System.Drawing.Point(97, 105);
             this.numGripperCloseOpen.Margin = new System.Windows.Forms.Padding(2);
             this.numGripperCloseOpen.Maximum = new decimal(new int[] {
             655,
@@ -1161,7 +1061,7 @@
             // 
             // numGripperRotate
             // 
-            this.numGripperRotate.Location = new System.Drawing.Point(67, 65);
+            this.numGripperRotate.Location = new System.Drawing.Point(82, 66);
             this.numGripperRotate.Margin = new System.Windows.Forms.Padding(2);
             this.numGripperRotate.Maximum = new decimal(new int[] {
             655,
@@ -1179,7 +1079,7 @@
             // 
             // numGripperUpDown
             // 
-            this.numGripperUpDown.Location = new System.Drawing.Point(67, 29);
+            this.numGripperUpDown.Location = new System.Drawing.Point(82, 30);
             this.numGripperUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.numGripperUpDown.Maximum = new decimal(new int[] {
             655,
@@ -1228,7 +1128,7 @@
             // mtbxArm
             // 
             this.mtbxArm.AutoSize = true;
-            this.mtbxArm.Location = new System.Drawing.Point(426, 93);
+            this.mtbxArm.Location = new System.Drawing.Point(-4, 88);
             this.mtbxArm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mtbxArm.Name = "mtbxArm";
             this.mtbxArm.Size = new System.Drawing.Size(38, 19);
@@ -1238,7 +1138,7 @@
             // mtbxShoulder
             // 
             this.mtbxShoulder.AutoSize = true;
-            this.mtbxShoulder.Location = new System.Drawing.Point(426, 54);
+            this.mtbxShoulder.Location = new System.Drawing.Point(-4, 49);
             this.mtbxShoulder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mtbxShoulder.Name = "mtbxShoulder";
             this.mtbxShoulder.Size = new System.Drawing.Size(75, 19);
@@ -1248,7 +1148,7 @@
             // mtbxBody
             // 
             this.mtbxBody.AutoSize = true;
-            this.mtbxBody.Location = new System.Drawing.Point(426, 15);
+            this.mtbxBody.Location = new System.Drawing.Point(-4, 10);
             this.mtbxBody.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mtbxBody.Name = "mtbxBody";
             this.mtbxBody.Size = new System.Drawing.Size(45, 19);
@@ -1271,7 +1171,7 @@
             this.mtxbSend.CustomButton.UseSelectable = true;
             this.mtxbSend.CustomButton.Visible = false;
             this.mtxbSend.Lines = new string[0];
-            this.mtxbSend.Location = new System.Drawing.Point(80, 54);
+            this.mtxbSend.Location = new System.Drawing.Point(589, 130);
             this.mtxbSend.Margin = new System.Windows.Forms.Padding(2);
             this.mtxbSend.MaxLength = 32767;
             this.mtxbSend.Name = "mtxbSend";
@@ -1290,7 +1190,7 @@
             // mtbSendtoArm
             // 
             this.mtbSendtoArm.AutoSize = true;
-            this.mtbSendtoArm.Location = new System.Drawing.Point(3, 57);
+            this.mtbSendtoArm.Location = new System.Drawing.Point(589, 101);
             this.mtbSendtoArm.Name = "mtbSendtoArm";
             this.mtbSendtoArm.Size = new System.Drawing.Size(103, 19);
             this.mtbSendtoArm.TabIndex = 18;
@@ -1302,7 +1202,7 @@
             // 
             // 
             this.txtCurrentCommand.CustomButton.Image = null;
-            this.txtCurrentCommand.CustomButton.Location = new System.Drawing.Point(180, 1);
+            this.txtCurrentCommand.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.txtCurrentCommand.CustomButton.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentCommand.CustomButton.Name = "";
             this.txtCurrentCommand.CustomButton.Size = new System.Drawing.Size(17, 17);
@@ -1312,7 +1212,7 @@
             this.txtCurrentCommand.CustomButton.UseSelectable = true;
             this.txtCurrentCommand.CustomButton.Visible = false;
             this.txtCurrentCommand.Lines = new string[0];
-            this.txtCurrentCommand.Location = new System.Drawing.Point(134, 15);
+            this.txtCurrentCommand.Location = new System.Drawing.Point(589, 50);
             this.txtCurrentCommand.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentCommand.MaxLength = 32767;
             this.txtCurrentCommand.Name = "txtCurrentCommand";
@@ -1322,7 +1222,7 @@
             this.txtCurrentCommand.SelectionLength = 0;
             this.txtCurrentCommand.SelectionStart = 0;
             this.txtCurrentCommand.ShortcutsEnabled = true;
-            this.txtCurrentCommand.Size = new System.Drawing.Size(198, 19);
+            this.txtCurrentCommand.Size = new System.Drawing.Size(252, 19);
             this.txtCurrentCommand.TabIndex = 17;
             this.txtCurrentCommand.UseSelectable = true;
             this.txtCurrentCommand.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1331,11 +1231,85 @@
             // mtbCurrentCoordinates
             // 
             this.mtbCurrentCoordinates.AutoSize = true;
-            this.mtbCurrentCoordinates.Location = new System.Drawing.Point(3, 17);
+            this.mtbCurrentCoordinates.Location = new System.Drawing.Point(589, 23);
             this.mtbCurrentCoordinates.Name = "mtbCurrentCoordinates";
             this.mtbCurrentCoordinates.Size = new System.Drawing.Size(160, 19);
             this.mtbCurrentCoordinates.TabIndex = 16;
             this.mtbCurrentCoordinates.Text = "CURRENT COORDINATES";
+            // 
+            // btnRun
+            // 
+            this.btnRun.BackColor = System.Drawing.Color.Green;
+            this.btnRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRun.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.ForeColor = System.Drawing.Color.White;
+            this.btnRun.Location = new System.Drawing.Point(755, 499);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(119, 47);
+            this.btnRun.TabIndex = 26;
+            this.btnRun.Text = "RUN";
+            this.btnRun.UseVisualStyleBackColor = false;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // btnInitialPosition
+            // 
+            this.btnInitialPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnInitialPosition.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInitialPosition.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInitialPosition.ForeColor = System.Drawing.Color.White;
+            this.btnInitialPosition.Location = new System.Drawing.Point(390, 499);
+            this.btnInitialPosition.Margin = new System.Windows.Forms.Padding(2);
+            this.btnInitialPosition.Name = "btnInitialPosition";
+            this.btnInitialPosition.Size = new System.Drawing.Size(119, 47);
+            this.btnInitialPosition.TabIndex = 25;
+            this.btnInitialPosition.Text = "Initial Position";
+            this.btnInitialPosition.UseVisualStyleBackColor = false;
+            this.btnInitialPosition.Click += new System.EventHandler(this.btnInitialPosition_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(267, 499);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(119, 47);
+            this.btnReset.TabIndex = 24;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click_1);
+            // 
+            // btnSaveProgram
+            // 
+            this.btnSaveProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnSaveProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSaveProgram.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveProgram.ForeColor = System.Drawing.Color.White;
+            this.btnSaveProgram.Location = new System.Drawing.Point(144, 499);
+            this.btnSaveProgram.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveProgram.Name = "btnSaveProgram";
+            this.btnSaveProgram.Size = new System.Drawing.Size(119, 47);
+            this.btnSaveProgram.TabIndex = 23;
+            this.btnSaveProgram.Text = "SAVE";
+            this.btnSaveProgram.UseVisualStyleBackColor = false;
+            // 
+            // btnClearConsole
+            // 
+            this.btnClearConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
+            this.btnClearConsole.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClearConsole.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearConsole.ForeColor = System.Drawing.Color.White;
+            this.btnClearConsole.Location = new System.Drawing.Point(21, 499);
+            this.btnClearConsole.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClearConsole.Name = "btnClearConsole";
+            this.btnClearConsole.Size = new System.Drawing.Size(119, 47);
+            this.btnClearConsole.TabIndex = 21;
+            this.btnClearConsole.Text = "Clear Console";
+            this.btnClearConsole.UseVisualStyleBackColor = false;
+            this.btnClearConsole.Click += new System.EventHandler(this.btnClearConsole_Click);
             // 
             // btnBack
             // 
@@ -1343,7 +1317,7 @@
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(783, 22);
+            this.btnBack.Location = new System.Drawing.Point(766, 23);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(119, 47);
@@ -1355,10 +1329,10 @@
             // lstCommands
             // 
             this.lstCommands.FormattingEnabled = true;
-            this.lstCommands.Location = new System.Drawing.Point(22, 557);
+            this.lstCommands.Location = new System.Drawing.Point(23, 550);
             this.lstCommands.Margin = new System.Windows.Forms.Padding(2);
             this.lstCommands.Name = "lstCommands";
-            this.lstCommands.Size = new System.Drawing.Size(852, 199);
+            this.lstCommands.Size = new System.Drawing.Size(851, 199);
             this.lstCommands.TabIndex = 9;
             // 
             // metroScrollBar1
@@ -1380,11 +1354,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 634);
+            this.ClientSize = new System.Drawing.Size(910, 755);
             this.Controls.Add(this.metroScrollBar1);
             this.Controls.Add(this.lstCommands);
+            this.Controls.Add(this.btnRun);
             this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnInitialPosition);
             this.Controls.Add(this.mtbArmControllerTabs);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnClearConsole);
+            this.Controls.Add(this.btnSaveProgram);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Arm_Controller";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
@@ -1408,9 +1387,9 @@
             this.pnGrip.PerformLayout();
             this.mtbTeachMoverDetails.ResumeLayout(false);
             this.mtbTeachMoverDetails.PerformLayout();
-            this.mtbpProgram.ResumeLayout(false);
-            this.grpbExport.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.grpbImport.ResumeLayout(false);
+            this.grpbExport.ResumeLayout(false);
             this.mtbOtherWay.ResumeLayout(false);
             this.mtbOtherWay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numArm)).EndInit();
@@ -1470,18 +1449,12 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTrackBar SpeedSlider;
         private System.Windows.Forms.Button btnRefresh;
-        private MetroFramework.Controls.MetroTabPage mtbpProgram;
-        private System.Windows.Forms.GroupBox grpbExport;
-        private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.GroupBox grpbImport;
-        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.ListBox lstCommands;
         private System.Windows.Forms.Button btnRecord;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Button btnInitialPosition;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSaveProgram;
-        private System.Windows.Forms.Button btnCommands;
         private System.Windows.Forms.Button btnClearConsole;
         private MetroFramework.Controls.MetroTabPage mtbOtherWay;
         private MetroFramework.Controls.MetroTextBox txtCurrentCommand;
@@ -1506,5 +1479,10 @@
         private System.Windows.Forms.Button btnSendData;
         private MetroFramework.Controls.MetroScrollBar metroScrollBar1;
         private System.ComponentModel.BackgroundWorker backRunCode;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpbImport;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.GroupBox grpbExport;
+        private System.Windows.Forms.Button btnExport;
     }
 }
