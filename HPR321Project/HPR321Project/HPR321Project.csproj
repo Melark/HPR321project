@@ -54,31 +54,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="Models\Controller.cs" />
+    <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Views\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeachMover.cs">
+    <Compile Include="Views\TeachMover.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TeachMover.Designer.cs">
+    <Compile Include="Views\TeachMover.Designer.cs">
       <DependentUpon>TeachMover.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Arm_Controller.cs">
+    <Compile Include="Views\Arm_Controller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Arm_Controller.Designer.cs">
+    <Compile Include="Views\Arm_Controller.Designer.cs">
       <DependentUpon>Arm_Controller.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Menu.resx">
+    <Compile Include="Enums\ThicknessEnum.cs" />
+    <EmbeddedResource Include="Views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TeachMover.resx">
+    <EmbeddedResource Include="Views\TeachMover.resx">
       <DependentUpon>TeachMover.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -90,7 +91,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Arm_Controller.resx">
+    <EmbeddedResource Include="Views\Arm_Controller.resx">
       <DependentUpon>Arm_Controller.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -115,6 +116,9 @@
       <Project>{5A724C09-91F5-4167-8917-3E7FA5C2A1E9}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

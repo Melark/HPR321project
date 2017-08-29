@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HPR321Project
+namespace HPR321Project.Views
 {
     public partial class TeachMover : MetroForm
     {

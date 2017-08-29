@@ -1,4 +1,4 @@
-﻿namespace HPR321Project
+﻿namespace HPR321Project.Views
 {
     partial class Menu
     {
