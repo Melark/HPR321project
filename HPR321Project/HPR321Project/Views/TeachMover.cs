@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HPR321Project
+namespace HPR321Project.Views
 {
-    public partial class Menu : MetroForm
+    public partial class TeachMover : MetroForm
     {
         #region Constructors
 
-        public Menu()
+        public TeachMover()
         {
             InitializeComponent();
         }
@@ -24,21 +24,16 @@ namespace HPR321Project
 
         #region Events
 
-        private void Menu_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void btnUserInterface_Click(object sender, EventArgs e)
+        private void btnEnter_Click(object sender, EventArgs e)
         {
-            Arm_Controller ui = new Arm_Controller();
-            ui.Show();
+            Menu menu = new Menu();
+            menu.Show();
             this.Hide();
-        }
-
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            
         }
 
         #endregion

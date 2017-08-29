@@ -14,7 +14,7 @@ using System.Timers;
 using DataAccess.FileHandler;
 using MetroFramework;
 
-namespace HPR321Project
+namespace HPR321Project.Views
 {
     public partial class Arm_Controller : MetroForm
     {
@@ -365,20 +365,38 @@ namespace HPR321Project
 
         #region Methods
 
+        /// <summary>
+        /// Sets all available com ports that the user can use
+        /// </summary>
         public void CheckConnectedDevices()
         {
             try
             {
+                // Get all found ports from system
                 string[] ports = SerialPort.GetPortNames();
 
+                // Clear the combo box list
                 cmbPorts.Items.Clear();
+                // For all com ports found
                 foreach (var item in ports)
                 {
+                    // Add com port to list
                     cmbPorts.Items.Add(item);
                 }
+
+                #region Auto select port
+
+                // If there is only one com port available, automatically use it
+                if (ports.Length == 1)
+                {
+                    cmbPorts.SelectedIndex = 0;
+                }
+
+                #endregion
             }
             catch (Exception ex)
             {
+                // Display an error messaage
                 DisplayErrorMessage(ex.Message, "Checking Connected Devices");
             }
         }
@@ -387,13 +405,20 @@ namespace HPR321Project
         {
             Menu menu = new Menu();
             menu.Show();
-            this.Hide();
+            this.Dispose();
         }
 
+        /// <summary>
+        /// Display an error message
+        /// </summary>
+        /// <param name="ErrorMessage">Error message for the error</param>
+        /// <param name="MethodName">Method where the error occured</param>
         private void DisplayErrorMessage(string ErrorMessage, string MethodName)
         {
+            // Allows for the method to be executed from different threads
             Invoke(new Action(() =>
             {
+                // Show a MessageBoxDialog
                 MessageBox.Show("An Error has occured: " + ErrorMessage, "Error in " + MethodName);
             }));
         }
@@ -900,11 +925,6 @@ namespace HPR321Project
                 line += "," + data[i];
             }
             return line;
-        }
-
-        private void btnImport_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

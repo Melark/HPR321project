@@ -1,4 +1,4 @@
-﻿namespace HPR321Project
+﻿namespace HPR321Project.Views
 {
     partial class Arm_Controller
     {
@@ -138,7 +138,7 @@
             this.mtbArmControllerTabs.Location = new System.Drawing.Point(17, 84);
             this.mtbArmControllerTabs.Margin = new System.Windows.Forms.Padding(2);
             this.mtbArmControllerTabs.Name = "mtbArmControllerTabs";
-            this.mtbArmControllerTabs.SelectedIndex = 2;
+            this.mtbArmControllerTabs.SelectedIndex = 1;
             this.mtbArmControllerTabs.Size = new System.Drawing.Size(888, 393);
             this.mtbArmControllerTabs.TabIndex = 7;
             this.mtbArmControllerTabs.UseSelectable = true;
@@ -209,7 +209,7 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Location = new System.Drawing.Point(658, 51);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(43, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(44, 19);
             this.metroLabel3.TabIndex = 16;
             this.metroLabel3.Text = "Faster";
             // 
@@ -775,7 +775,7 @@
             this.btnImport.TabIndex = 18;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click_1);
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // grpbExport
             // 
@@ -802,6 +802,7 @@
             this.btnExport.TabIndex = 19;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnRefresh
             // 
@@ -1101,7 +1102,7 @@
             this.mtbxGripperCloseOpen.Location = new System.Drawing.Point(4, 106);
             this.mtbxGripperCloseOpen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mtbxGripperCloseOpen.Name = "mtbxGripperCloseOpen";
-            this.mtbxGripperCloseOpen.Size = new System.Drawing.Size(89, 19);
+            this.mtbxGripperCloseOpen.Size = new System.Drawing.Size(90, 19);
             this.mtbxGripperCloseOpen.TabIndex = 2;
             this.mtbxGripperCloseOpen.Text = "CLOSE/OPEN";
             // 
@@ -1111,7 +1112,7 @@
             this.mtbxGripperRotate.Location = new System.Drawing.Point(4, 67);
             this.mtbxGripperRotate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mtbxGripperRotate.Name = "mtbxGripperRotate";
-            this.mtbxGripperRotate.Size = new System.Drawing.Size(53, 19);
+            this.mtbxGripperRotate.Size = new System.Drawing.Size(58, 19);
             this.mtbxGripperRotate.TabIndex = 1;
             this.mtbxGripperRotate.Text = "ROTATE";
             // 
@@ -1192,7 +1193,7 @@
             this.mtbSendtoArm.AutoSize = true;
             this.mtbSendtoArm.Location = new System.Drawing.Point(589, 101);
             this.mtbSendtoArm.Name = "mtbSendtoArm";
-            this.mtbSendtoArm.Size = new System.Drawing.Size(103, 19);
+            this.mtbSendtoArm.Size = new System.Drawing.Size(104, 19);
             this.mtbSendtoArm.TabIndex = 18;
             this.mtbSendtoArm.Text = "SEND TO ARM: ";
             // 
@@ -1233,7 +1234,7 @@
             this.mtbCurrentCoordinates.AutoSize = true;
             this.mtbCurrentCoordinates.Location = new System.Drawing.Point(589, 23);
             this.mtbCurrentCoordinates.Name = "mtbCurrentCoordinates";
-            this.mtbCurrentCoordinates.Size = new System.Drawing.Size(160, 19);
+            this.mtbCurrentCoordinates.Size = new System.Drawing.Size(162, 19);
             this.mtbCurrentCoordinates.TabIndex = 16;
             this.mtbCurrentCoordinates.Text = "CURRENT COORDINATES";
             // 
