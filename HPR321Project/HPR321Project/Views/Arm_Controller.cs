@@ -13,6 +13,7 @@ using Timer = System.Timers.Timer;
 using System.Timers;
 using DataAccess.FileHandler;
 using MetroFramework;
+using System.Media;
 
 namespace HPR321Project.Views
 {
@@ -56,7 +57,7 @@ namespace HPR321Project.Views
         #endregion
 
         #region Constructors
-
+        SoundPlayer player= new SoundPlayer("bloop_x.wav");
         public Arm_Controller()
         {
             InitializeComponent();
@@ -553,21 +554,25 @@ namespace HPR321Project.Views
         private void btnBodyRight_MouseDown(object sender, MouseEventArgs e)
         {
             loopBodyRightTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnBodyRight_MouseUp(object sender, MouseEventArgs e)
         {
             loopBodyRightTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnBodyLeft_MouseDown(object sender, MouseEventArgs e)
         {
             loopBodyLeftTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnBodyLeft_MouseUp(object sender, MouseEventArgs e)
         {
             loopBodyLeftTimer.Enabled = false;
+            player.Play();
         }
         #endregion
 
@@ -575,21 +580,25 @@ namespace HPR321Project.Views
         private void btnShoulderDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopShoulderDownTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnShoulderDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopShoulderDownTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnShoulderUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopShoulderUpTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnShoulderUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopShoulderUpTimer.Enabled = false;
+            player.Play();
         }
 
         #endregion
@@ -598,21 +607,25 @@ namespace HPR321Project.Views
         private void btnArmDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopArmDownTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnArmDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopArmDownTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnArmUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopArmUpTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnArmUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopArmUpTimer.Enabled = false;
+            player.Play();
         }
 
         #endregion
@@ -621,61 +634,73 @@ namespace HPR321Project.Views
         private void btnGrupDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripMovementDownTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnGrupDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripMovementDownTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnGripUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripMovementUpTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnGripUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripMovementUpTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnOpen_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripOpenTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnOpen_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripOpenTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnGripClose_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripCloseTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnGripClose_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripCloseTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnRotateRight_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripPivotRightTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnRotateRight_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripPivotRightTimer.Enabled = false;
+            player.Play();
         }
 
         private void btnGripRotateLeft_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripPivotLeftTimer.Enabled = true;
+            player.Play();
         }
 
         private void btnGripRotateLeft_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripPivotLeftTimer.Enabled = false;
+            player.Play();
         }
 
         #endregion
@@ -954,5 +979,7 @@ namespace HPR321Project.Views
 
             }
         }
+
+        
     }
 }

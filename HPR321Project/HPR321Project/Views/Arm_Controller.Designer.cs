@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Arm_Controller));
             this.mtbArmControllerTabs = new MetroFramework.Controls.MetroTabControl();
             this.mtbppUserInterface = new MetroFramework.Controls.MetroTabPage();
+            this.btnThickorThin = new System.Windows.Forms.Button();
             this.btnRecord = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -108,7 +109,6 @@
             this.lstCommands = new System.Windows.Forms.ListBox();
             this.metroScrollBar1 = new MetroFramework.Controls.MetroScrollBar();
             this.backRunCode = new System.ComponentModel.BackgroundWorker();
-            this.btnThickorThin = new System.Windows.Forms.Button();
             this.mtbArmControllerTabs.SuspendLayout();
             this.mtbppUserInterface.SuspendLayout();
             this.pnArm.SuspendLayout();
@@ -171,6 +171,21 @@
             this.mtbppUserInterface.VerticalScrollbarHighlightOnWheel = false;
             this.mtbppUserInterface.VerticalScrollbarSize = 11;
             // 
+            // btnThickorThin
+            // 
+            this.btnThickorThin.BackColor = System.Drawing.Color.Firebrick;
+            this.btnThickorThin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnThickorThin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThickorThin.ForeColor = System.Drawing.Color.White;
+            this.btnThickorThin.Location = new System.Drawing.Point(955, 25);
+            this.btnThickorThin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThickorThin.Name = "btnThickorThin";
+            this.btnThickorThin.Size = new System.Drawing.Size(208, 58);
+            this.btnThickorThin.TabIndex = 22;
+            this.btnThickorThin.Text = "THICK OR THN";
+            this.btnThickorThin.UseVisualStyleBackColor = false;
+            this.btnThickorThin.Click += new System.EventHandler(this.btnThickorThin_Click);
+            // 
             // btnRecord
             // 
             this.btnRecord.BackColor = System.Drawing.Color.Firebrick;
@@ -220,7 +235,7 @@
             // 
             this.SpeedSlider.BackColor = System.Drawing.Color.Transparent;
             this.SpeedSlider.Location = new System.Drawing.Point(285, 58);
-            this.SpeedSlider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SpeedSlider.Margin = new System.Windows.Forms.Padding(4);
             this.SpeedSlider.Maximum = 500;
             this.SpeedSlider.Name = "SpeedSlider";
             this.SpeedSlider.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -248,10 +263,10 @@
             // 
             // 
             this.mtbArmCoordinates.CustomButton.Image = null;
-            this.mtbArmCoordinates.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.mtbArmCoordinates.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.mtbArmCoordinates.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbArmCoordinates.CustomButton.Name = "";
-            this.mtbArmCoordinates.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbArmCoordinates.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbArmCoordinates.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbArmCoordinates.CustomButton.TabIndex = 1;
             this.mtbArmCoordinates.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -329,10 +344,10 @@
             // 
             // 
             this.mtbxtShoulderCoordinates.CustomButton.Image = null;
-            this.mtbxtShoulderCoordinates.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.mtbxtShoulderCoordinates.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.mtbxtShoulderCoordinates.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbxtShoulderCoordinates.CustomButton.Name = "";
-            this.mtbxtShoulderCoordinates.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbxtShoulderCoordinates.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbxtShoulderCoordinates.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbxtShoulderCoordinates.CustomButton.TabIndex = 1;
             this.mtbxtShoulderCoordinates.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -410,10 +425,10 @@
             // 
             // 
             this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.metroTextBox1.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroTextBox1.CustomButton.TabIndex = 1;
             this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -491,10 +506,10 @@
             // 
             // 
             this.mtbBodyCo_ordinates.CustomButton.Image = null;
-            this.mtbBodyCo_ordinates.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.mtbBodyCo_ordinates.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.mtbBodyCo_ordinates.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbBodyCo_ordinates.CustomButton.Name = "";
-            this.mtbBodyCo_ordinates.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbBodyCo_ordinates.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbBodyCo_ordinates.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbBodyCo_ordinates.CustomButton.TabIndex = 1;
             this.mtbBodyCo_ordinates.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -550,6 +565,7 @@
             this.btnBodyLeft.Size = new System.Drawing.Size(91, 63);
             this.btnBodyLeft.TabIndex = 0;
             this.btnBodyLeft.UseVisualStyleBackColor = true;
+           // this.btnBodyLeft.Click += new System.EventHandler(this.btnBodyLeft_Click);
             this.btnBodyLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseDown);
             this.btnBodyLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnBodyLeft_MouseUp);
             // 
@@ -572,10 +588,10 @@
             // 
             // 
             this.mtbGripCoordinatesOpenClose.CustomButton.Image = null;
-            this.mtbGripCoordinatesOpenClose.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.mtbGripCoordinatesOpenClose.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.mtbGripCoordinatesOpenClose.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbGripCoordinatesOpenClose.CustomButton.Name = "";
-            this.mtbGripCoordinatesOpenClose.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbGripCoordinatesOpenClose.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbGripCoordinatesOpenClose.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbGripCoordinatesOpenClose.CustomButton.TabIndex = 1;
             this.mtbGripCoordinatesOpenClose.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -653,10 +669,10 @@
             // 
             // 
             this.mtbGripCoordinates.CustomButton.Image = null;
-            this.mtbGripCoordinates.CustomButton.Location = new System.Drawing.Point(125, 1);
+            this.mtbGripCoordinates.CustomButton.Location = new System.Drawing.Point(94, 1);
             this.mtbGripCoordinates.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbGripCoordinates.CustomButton.Name = "";
-            this.mtbGripCoordinates.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbGripCoordinates.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbGripCoordinates.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbGripCoordinates.CustomButton.TabIndex = 1;
             this.mtbGripCoordinates.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -742,9 +758,9 @@
             this.groupBox1.Controls.Add(this.grpbImport);
             this.groupBox1.Controls.Add(this.grpbExport);
             this.groupBox1.Location = new System.Drawing.Point(781, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(388, 244);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
@@ -824,7 +840,7 @@
             this.cmbPorts.FormattingEnabled = true;
             this.cmbPorts.ItemHeight = 24;
             this.cmbPorts.Location = new System.Drawing.Point(191, 70);
-            this.cmbPorts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPorts.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPorts.Name = "cmbPorts";
             this.cmbPorts.Size = new System.Drawing.Size(263, 30);
             this.cmbPorts.TabIndex = 11;
@@ -871,10 +887,10 @@
             // 
             // 
             this.mtbbTeachMoverDetails.CustomButton.Image = null;
-            this.mtbbTeachMoverDetails.CustomButton.Location = new System.Drawing.Point(323, 1);
+            this.mtbbTeachMoverDetails.CustomButton.Location = new System.Drawing.Point(242, 1);
             this.mtbbTeachMoverDetails.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtbbTeachMoverDetails.CustomButton.Name = "";
-            this.mtbbTeachMoverDetails.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtbbTeachMoverDetails.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtbbTeachMoverDetails.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbbTeachMoverDetails.CustomButton.TabIndex = 1;
             this.mtbbTeachMoverDetails.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1159,10 +1175,10 @@
             // 
             // 
             this.mtxbSend.CustomButton.Image = null;
-            this.mtxbSend.CustomButton.Location = new System.Drawing.Point(419, 1);
+            this.mtxbSend.CustomButton.Location = new System.Drawing.Point(314, 1);
             this.mtxbSend.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.mtxbSend.CustomButton.Name = "";
-            this.mtxbSend.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.mtxbSend.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mtxbSend.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtxbSend.CustomButton.TabIndex = 1;
             this.mtxbSend.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1201,10 +1217,10 @@
             // 
             // 
             this.txtCurrentCommand.CustomButton.Image = null;
-            this.txtCurrentCommand.CustomButton.Location = new System.Drawing.Point(419, 1);
+            this.txtCurrentCommand.CustomButton.Location = new System.Drawing.Point(314, 1);
             this.txtCurrentCommand.CustomButton.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtCurrentCommand.CustomButton.Name = "";
-            this.txtCurrentCommand.CustomButton.Size = new System.Drawing.Size(28, 26);
+            this.txtCurrentCommand.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtCurrentCommand.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtCurrentCommand.CustomButton.TabIndex = 1;
             this.txtCurrentCommand.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -1350,21 +1366,6 @@
             this.metroScrollBar1.Size = new System.Drawing.Size(11, 199);
             this.metroScrollBar1.TabIndex = 10;
             this.metroScrollBar1.UseSelectable = true;
-            // 
-            // btnThickorThin
-            // 
-            this.btnThickorThin.BackColor = System.Drawing.Color.Firebrick;
-            this.btnThickorThin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnThickorThin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThickorThin.ForeColor = System.Drawing.Color.White;
-            this.btnThickorThin.Location = new System.Drawing.Point(955, 25);
-            this.btnThickorThin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThickorThin.Name = "btnThickorThin";
-            this.btnThickorThin.Size = new System.Drawing.Size(208, 58);
-            this.btnThickorThin.TabIndex = 22;
-            this.btnThickorThin.Text = "THICK OR THN";
-            this.btnThickorThin.UseVisualStyleBackColor = false;
-            this.btnThickorThin.Click += new System.EventHandler(this.btnThickorThin_Click);
             // 
             // Arm_Controller
             // 

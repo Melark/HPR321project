@@ -25,10 +25,9 @@ namespace HPR321Project.Views
         #endregion
 
         #region Events
-        SoundPlayer player = new SoundPlayer();
+        SoundPlayer player = new SoundPlayer("cheering.wav");
         private void Menu_Load(object sender, EventArgs e)
         {
-
             player.Play();
         }
 
