@@ -926,5 +926,31 @@ namespace HPR321Project.Views
             }
             return line;
         }
+
+        private void btnThickorThin_Click(object sender, EventArgs e)
+        {
+            if (sp.IsOpen)
+            {
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,1,-100,1,1,1,500,\r");
+                sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
+                sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,0,0,0,0,0,1113-500,\r");
+                sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "240,0,0,0,0,0,0,\r");
+                sp.Write(mtbbTeachMoverDetails + "READ \r");
+                double th;
+                double jaw = 613;
+                sp.Write(mtbbTeachMoverDetails + "READ" + MovementSpeed + "," + "0,0,0,0,0,0,613,0");
+                th = jaw / 371;
+                if(th<0.015)
+                {
+                    MetroMessageBox.Show(this, "Thickness is: " ,th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MetroMessageBox.Show(this, "Thinness is: ", th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+        }
     }
 }
