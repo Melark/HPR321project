@@ -28,7 +28,7 @@ namespace HPR321Project.Views
         SoundPlayer player = new SoundPlayer("cheering.wav");
         private void Menu_Load(object sender, EventArgs e)
         {
-            player.Play();
+           // player.Play();
         }
 
         private void btnUserInterface_Click(object sender, EventArgs e)

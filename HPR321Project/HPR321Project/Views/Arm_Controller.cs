@@ -56,6 +56,8 @@ namespace HPR321Project.Views
         List<string> FInalProgramTempR = new List<string>(); // reverse move Temporay Store
         #endregion
 
+        int CurrentStep = 0;
+
         #region Constructors
         SoundPlayer player= new SoundPlayer("bloop_x.wav");
         public Arm_Controller()
@@ -94,6 +96,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE "+ CurrentStep+ ","+ "-100,0,0,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
                 }
             }
@@ -109,6 +117,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "100,0,0,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
                 }
             }
@@ -127,6 +141,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,100,0,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,100,0,0,0,0,0,\r");
                 }
             }
@@ -142,6 +162,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,-100,0,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
                 }
             }
@@ -159,6 +185,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,100,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
                 }
             }
@@ -174,6 +206,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,-100,0,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
                 }
             }
@@ -190,8 +228,14 @@ namespace HPR321Project.Views
             try
             {
                 if (sp.IsOpen)
-                {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
+                { 
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,-100,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
                 }
             }
             catch (Exception ex)
@@ -204,8 +248,15 @@ namespace HPR321Project.Views
         {
             try
             {
+                
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,-100,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
                 }
             }
@@ -223,6 +274,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,-100,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
                 }
             }
@@ -238,6 +295,12 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,100,0,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
                 }
             }
@@ -255,7 +318,13 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,100,0,0,\r");
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,100,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,0,\r");
                 }
             }
             catch (Exception ex)
@@ -270,7 +339,13 @@ namespace HPR321Project.Views
             {
                 if (sp.IsOpen)
                 {
-                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,-100,0,0,\r");
+                    if (RecordProgram)
+                    {
+                        sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,-100,0,0,\r");
+                        RecordProgram = false;
+                        CurrentStep++;
+                    }
+                    sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,0,\r");
                 }
             }
             catch (Exception ex)
@@ -554,25 +629,25 @@ namespace HPR321Project.Views
         private void btnBodyRight_MouseDown(object sender, MouseEventArgs e)
         {
             loopBodyRightTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnBodyRight_MouseUp(object sender, MouseEventArgs e)
         {
             loopBodyRightTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnBodyLeft_MouseDown(object sender, MouseEventArgs e)
         {
             loopBodyLeftTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnBodyLeft_MouseUp(object sender, MouseEventArgs e)
         {
             loopBodyLeftTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
         #endregion
 
@@ -580,25 +655,25 @@ namespace HPR321Project.Views
         private void btnShoulderDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopShoulderDownTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnShoulderDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopShoulderDownTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnShoulderUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopShoulderUpTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnShoulderUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopShoulderUpTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         #endregion
@@ -607,25 +682,25 @@ namespace HPR321Project.Views
         private void btnArmDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopArmDownTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnArmDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopArmDownTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnArmUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopArmUpTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnArmUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopArmUpTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         #endregion
@@ -634,73 +709,73 @@ namespace HPR321Project.Views
         private void btnGrupDown_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripMovementDownTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGrupDown_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripMovementDownTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripUp_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripMovementUpTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripUp_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripMovementUpTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnOpen_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripOpenTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnOpen_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripOpenTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripClose_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripCloseTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripClose_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripCloseTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnRotateRight_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripPivotRightTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnRotateRight_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripPivotRightTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripRotateLeft_MouseDown(object sender, MouseEventArgs e)
         {
             loopGripPivotLeftTimer.Enabled = true;
-            player.Play();
+            //player.Play();
         }
 
         private void btnGripRotateLeft_MouseUp(object sender, MouseEventArgs e)
         {
             loopGripPivotLeftTimer.Enabled = false;
-            player.Play();
+            //player.Play();
         }
 
         #endregion
@@ -798,6 +873,7 @@ namespace HPR321Project.Views
         {
             if (sp.IsOpen)
             {
+                CurrentStep = 0;
                 sp.Write("@RESET \r");
             }
         }
@@ -805,10 +881,11 @@ namespace HPR321Project.Views
         private void btnRecord_Click(object sender, EventArgs e)
         {
             txtCurrentCommand.Text = " ";
-            if (sp.IsOpen)
-            {
-                sp.Write("@READ \r");
-            }
+            //if (sp.IsOpen)
+            //{
+            //    sp.Write("@READ \r");
+            //}
+            RecordProgram = true;
         }
         public void ResetNumericUpDowns()
         {
