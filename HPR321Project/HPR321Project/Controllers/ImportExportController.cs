@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace HPR321Project.Controllers
 {
-    class ThicknessController : IDisposable
+    class ImportExportController : IDisposable
     {
-        public ThicknessController()
+        public ImportExportController()
+        {
+
+        }
+
+        public void ImportProgram()
         {
 
         }

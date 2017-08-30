@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HPR321Project.Controllers
 {
-    class ThicknessController : IDisposable
+    class BotMovementController : IDisposable
     {
-        public ThicknessController()
+        public BotMovementController()
         {
 
         }
