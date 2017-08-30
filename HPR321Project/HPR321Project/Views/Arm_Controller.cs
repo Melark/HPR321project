@@ -939,7 +939,7 @@ namespace HPR321Project.Views
                 sp.Write(mtbbTeachMoverDetails + "READ \r");
                 double th;
                 double jaw = 613;
-                sp.Write(mtbbTeachMoverDetails + "READ" + MovementSpeed + "," + "0,0,0,0,0,0,613,0");
+                sp.Write(mtbbTeachMoverDetails + "READ" + MovementSpeed + "," + "0,0,0,0,0,0,613,0,\r");
                 th = jaw / 371;
                 if(th<0.015)
                 {
