@@ -944,10 +944,12 @@ namespace HPR321Project.Views
                 if(th<0.015)
                 {
                     MetroMessageBox.Show(this, "Thickness is: " ,th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
                 }
                 else
                 {
                     MetroMessageBox.Show(this, "Thinness is: ", th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
                 }
 
             }
