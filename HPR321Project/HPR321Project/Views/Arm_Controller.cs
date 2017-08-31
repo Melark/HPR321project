@@ -304,9 +304,10 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,-100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        TestObjectInClaw();
+                        
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -326,9 +327,9 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
+                    gripGrabbed = false;
                 }
             }
             catch (Exception ex)
@@ -350,9 +351,9 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,100,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -372,9 +373,9 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,-100,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
