@@ -14,6 +14,9 @@ using System.Timers;
 using DataAccess.FileHandler;
 using MetroFramework;
 using System.Media;
+using System.Diagnostics;
+using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace HPR321Project.Views
 {
@@ -37,6 +40,10 @@ namespace HPR321Project.Views
 
         private static Timer loopGripPivotRightTimer;
         private static Timer loopGripPivotLeftTimer;
+
+        //import dll usage for user to allow parent window to open and display the .exe executed
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern IntPtr SetParent(IntPtr chiled, IntPtr newParent);
         #endregion
 
         #region Fields
@@ -48,7 +55,7 @@ namespace HPR321Project.Views
 
         string currentDataTempStorage = "";
         volatile bool IsCarrageReturnReceived = false;
-        volatile bool RecordProgram = false;
+        bool RecordProgram = false;
         List<string> ListOfRecordedCommands = new List<string>(); // store commands recorded by the user
         List<string> ListOfCommands = new List<string>(); //stores all commands run by the user
         List<string> FinalProgramCommands = new List<string>();// stores formatted final program to be executed.
@@ -148,6 +155,7 @@ namespace HPR321Project.Views
                         RecordProgram = false;
                         CurrentStep++;
                     }
+
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
                     //TestObjectInClaw();
                 }
@@ -1088,27 +1096,32 @@ namespace HPR321Project.Views
         {
             if (sp.IsOpen)
             {
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,1,-100,1,1,1,500,\r");
-                sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
-                sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
-                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,0,0,0,0,0,1113-500,\r");
-                sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "240,0,0,0,0,0,0,\r");
-                sp.Write(mtbbTeachMoverDetails + "READ \r");
-                double th;
-                double jaw = 613;
-                sp.Write(mtbbTeachMoverDetails + "READ" + MovementSpeed + "," + "0,0,0,0,0,0,613,0,\r");
-                th = jaw / 371;
-                if(th<0.015)
-                {
-                    MetroMessageBox.Show(this, "Thickness is: " ,th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
-                }
-                else
-                {
-                    MetroMessageBox.Show(this, "Thinness is: ", th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
-                }
+                //sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,1,-100,1,1,1,500,\r");
+                //sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
+                //sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
+                //sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "240,0,0,0,0,0,1113-500,\r");
+                //sp.Write(mtbbTeachMoverDetails.Text + "CLOSE" + MovementSpeed + "," + "240,0,0,0,0,0,0,\r");
+                //sp.Write(mtbbTeachMoverDetails + "READ \r");
+                //double th;
+                //double jaw = 613;
+                //sp.Write(mtbbTeachMoverDetails + "READ" + MovementSpeed + "," + "0,0,0,0,0,0,613,0,\r");
+                //th = jaw / 371;
+                //if(th<0.015)
+                //{
+                //    MetroMessageBox.Show(this, "Thickness is: " ,th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
+                //}
+                //else
+                //{
+                //    MetroMessageBox.Show(this, "Thinness is: ", th.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    sp.Write(mtbbTeachMoverDetails.Text + "RESET \r");
+                //}
 
+
+                ///
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "400,0,0,0,0,0,0,\r");
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "0,200,0,0,0,0,0,\r");
+                sp.Write(mtbbTeachMoverDetails.Text + "STEP" + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
             }
         }
 
@@ -1125,6 +1138,28 @@ namespace HPR321Project.Views
         private void btnShoulderDown_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBodyLeft_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //POSSIBLE PROBLEM WITH ACCELERATED 3D applications
+            Process process = new Process();
+            process.StartInfo.FileName = "..\\..\\UnityProject\\RobotExecutable.exe";
+            try
+            {
+                process.Start();
+                Thread.Sleep(50);
+                SetParent(process.MainWindowHandle, this.Handle);
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, "An error occured displaying the unity item" + ex.Message, "UNITY ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
