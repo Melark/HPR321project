@@ -70,15 +70,22 @@ namespace HPR321Project.Views
         #region Properties
 
         private bool gripGrabbed;
+        private object ResourseLock = new object();
 
         public bool GripGrabbed {
             get
             {
-                return gripGrabbed;
+                lock (ResourseLock)
+                {
+                    return gripGrabbed;
+                }
             }
             set
             {
-                gripGrabbed = value;
+                lock (ResourseLock)
+                {
+                    gripGrabbed = value;
+                }
             }
         }
 
@@ -120,7 +127,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -142,7 +149,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -167,7 +174,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,100,0,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -189,7 +196,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -213,7 +220,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -235,7 +242,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -259,7 +266,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                 sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -282,7 +289,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -307,7 +314,7 @@ namespace HPR321Project.Views
                         
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -329,7 +336,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
-                    gripGrabbed = false;
+                    //GripGrabbed = false;
                 }
             }
             catch (Exception ex)
@@ -353,7 +360,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -375,7 +382,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,0,\r");
-                    TestObjectInClaw();
+                    //TestObjectInClaw();
                 }
             }
             catch (Exception ex)
