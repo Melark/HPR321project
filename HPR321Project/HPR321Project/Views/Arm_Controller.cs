@@ -120,6 +120,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "-100,0,0,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -141,6 +142,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "100,0,0,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -165,6 +167,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,100,0,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -186,6 +189,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,-100,0,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -209,6 +213,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,100,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -230,6 +235,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,-100,0,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -253,6 +259,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                 sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,-100,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -275,6 +282,7 @@ namespace HPR321Project.Views
                         CurrentStep++;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,100,0,0,0,\r");
+                    TestObjectInClaw();
                 }
             }
             catch (Exception ex)
@@ -296,19 +304,7 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,-100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        string strReadValue = sp.ReadLine();
-                        string[] arrSplitter = strReadValue.Split(',');
-                        int iClosed = int.Parse(arrSplitter[arrSplitter.Length - 1]);
-
-                        if (iClosed == 1)
-                        {
-                            GripGrabbed = true;
-                        }
-                        else if (iClosed == 0 && GripGrabbed == true)
-                        {
-                            // Fire event
-                            MetroMessageBox.Show(this, "Object Dropped", "Object Dropped", MessageBoxButtons.OK);
-                        }
+                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
                 }
@@ -330,7 +326,7 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
-                        GripGrabbed = true;
+                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
                 }
@@ -354,6 +350,7 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,100,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
+                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,0,\r");
                 }
@@ -375,6 +372,7 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,0,-100,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
+                        TestObjectInClaw();
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,0,\r");
                 }
@@ -385,6 +383,23 @@ namespace HPR321Project.Views
             }
         }
         #endregion
+
+        private void TestObjectInClaw()
+        {
+            string strReadValue = sp.ReadLine();
+            string[] arrSplitter = strReadValue.Split(',');
+            int iClosed = int.Parse(arrSplitter[arrSplitter.Length - 1]);
+
+            if (iClosed == 1)
+            {
+                GripGrabbed = true;
+            }
+            else if (iClosed == 0 && GripGrabbed == true)
+            {
+                // Fire event
+                MetroMessageBox.Show(this, "Object Dropped", "Object Dropped", MessageBoxButtons.OK);
+            }
+        }
 
         #endregion
 
@@ -918,6 +933,7 @@ namespace HPR321Project.Views
             //}
             RecordProgram = true;
         }
+
         public void ResetNumericUpDowns()
         {
             numArm.Value = 0;
