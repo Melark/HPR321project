@@ -67,6 +67,23 @@ namespace HPR321Project.Views
 
         #endregion
 
+        #region Properties
+
+        private bool gripGrabbed;
+
+        public bool GripGrabbed {
+            get
+            {
+                return gripGrabbed;
+            }
+            set
+            {
+                gripGrabbed = value;
+            }
+        }
+
+        #endregion
+
         #region Events
 
         #region Form
@@ -279,6 +296,19 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,-100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
+                        string strReadValue = sp.ReadLine();
+                        string[] arrSplitter = strReadValue.Split(',');
+                        int iClosed = int.Parse(arrSplitter[arrSplitter.Length - 1]);
+
+                        if (iClosed == 1)
+                        {
+                            GripGrabbed = true;
+                        }
+                        else if (iClosed == 0 && GripGrabbed == true)
+                        {
+                            // Fire event
+                            MetroMessageBox.Show(this, "Object Dropped", "Object Dropped", MessageBoxButtons.OK);
+                        }
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,-100,0,\r");
                 }
@@ -300,6 +330,7 @@ namespace HPR321Project.Views
                         sp.Write(mtbbTeachMoverDetails.Text + "QWRITE " + CurrentStep + "," + "0,0,0,0,100,0,0,0,\r");
                         RecordProgram = false;
                         CurrentStep++;
+                        GripGrabbed = true;
                     }
                     sp.Write(mtbbTeachMoverDetails.Text + "STEP " + MovementSpeed + "," + "0,0,0,0,0,100,0,\r");
                 }
@@ -1057,6 +1088,19 @@ namespace HPR321Project.Views
             }
         }
 
-        
+        private void btnGripClose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShoulderDown_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
